@@ -1,2 +1,183 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-07-11 04:07+0000\n"
+"Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
+"Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/plugins/"
+"pflPlugin/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "plugins.generic.pfl.metric"
+msgstr "Метрика"
+
+msgid "plugins.generic.pflPlugin.settings.journal"
+msgstr "Інформація про журнал"
+
+msgid "plugins.generic.pflPlugin.settings.excludePrior"
+msgstr "Виключити за датою"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart"
+msgstr "Дата початку"
+
+msgid "plugins.generic.pfl.displayName"
+msgstr "Плагін міток для фактів про публікацію"
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl"
+msgstr "URL"
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing"
+msgstr "Плагін фінансування відсутній"
+
+msgid "plugins.generic.pflPlugin.settings.indexes"
+msgstr "Індексні списки журналу"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic"
+msgstr "Автоматизоване внесення індексів до ІпП"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj"
+msgstr "Directory of Open Access Journals"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj.validationFailed"
+msgstr ""
+"Не вдалося перевірити індексацію журналу в DOAJ. Переконайтеся, що ваш "
+"журнал проіндексовано, а в налаштуваннях журналу налаштовано відповідний "
+"ISSN."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.scholar"
+msgstr "Google Академія"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline"
+msgstr "MEDLINE"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex"
+msgstr "Latindex"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex.validationFailed"
+msgstr ""
+"Не вдалося перевірити індексацію журналу в Latindex. Переконайтеся, що ваш "
+"журнал проіндексовано, а в налаштуваннях журналу налаштовано відповідний "
+"ISSN."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual"
+msgstr "Ручне внесення індексів до ІпП"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.urlInvalid"
+msgstr ""
+"Введена вами URL-адреса Scopus неправильна. Будь ласка, прочитайте "
+"інструкції та спробуйте ще раз."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step1"
+msgstr ""
+"Перейдіть на сторінку <a href=\"https://www.scopus.com/sources."
+"uri?zone=TopNavBar&origin=\" target=\"_new\">Джерела</a> бази даних Scopus і "
+"виберіть «Назва» у випадаючому меню."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step2"
+msgstr ""
+"Введіть назву журналу, і якщо його проіндексовано, вона відобразиться як "
+"«Результат»."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step3"
+msgstr "Натисніть на заголовок і вставте сюди URL-адресу отриманої сторінки:"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus"
+msgstr ""
+"<strong>Scopus</strong> (<a target=\"_new\" href=\"https://en.wikipedia.org/"
+"wiki/Scopus\">інформація</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos"
+msgstr ""
+"<strong>Web of Science</strong> (<a target=\"_new\" href=\"https://en."
+"wikipedia.org/wiki/Web_of_Science\">інформація</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.urlInvalid"
+msgstr ""
+"Введена вами URL-адреса Web of Science неправильна. Будь ласка, прочитайте "
+"інструкції та спробуйте ще раз."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step2"
+msgstr ""
+"Якщо його проіндексовано у Web of Science, він відображатиметься як "
+"«Результат»."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step3"
+msgstr ""
+"Скопіюйте URL-адресу за допомогою \"Поділитися цим журналом\" та вставте її "
+"сюди:"
+
+msgid "plugins.generic.pfl.percentage"
+msgstr "{$num}%"
+
+msgid "plugins.generic.pfl.academicSociety.fieldLabel"
+msgstr "Назва або абревіатура товариства"
+
+msgid "plugins.generic.pfl.academicSociety"
+msgstr "Товариство"
+
+msgid "plugins.generic.pfl.description"
+msgstr ""
+"Цей плагін додає бічну панель зі статистикою, щоб читачам показувати "
+"характеристики цілісності журналу."
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.description"
+msgstr ""
+"Якщо ваш журнал не використовував редакційний робочий процес OJS до певної "
+"дати, укажіть це тут, щоб виключити попередні матеріали зі збору статистики. "
+"Мітка про факти про публікацію не відображатиметься на матеріалах, поданих "
+"до цієї дати."
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.invalid"
+msgstr "Будь ласка, перевірте ще раз, чи вказана дата початку є дійсною."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl.invalid"
+msgstr ""
+"URL-адреса академічного товариства не є дійсною. Переконайтеся, що URL-"
+"адреса повна та правильно відформатована."
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing.description"
+msgstr ""
+"Плагін фінансування відсутній та не ввімкнений. Щоб дані про фінансування "
+"відображалися в розділі фактів про публікацію, цей плагін потрібно "
+"встановити та ввімкнути, а також надати відповідні дані для кожного подання. "
+"Перегляньте галерею плагінів, щоб знайти цей плагін."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.description"
+msgstr ""
+"Під заголовком «Індексовано» в розділі інформації про публікацію (ІпП) "
+"читачам буде представлено до чотирьох покажчиків, у яких згадується журнал. "
+"Чотири з наведених нижче покажчиків пропонують широке охоплення, тоді як "
+"MEDLINE охоплює медичні науки, а Latindex – Латинську Америку (див. "
+"інформацію нижче). Індекси дають змогу публічно відображати список журналів ("
+"навіть коли покажчик закритий). Хоча два покажчики можна перевірити "
+"автоматично, інші чотири вимагають пошуку журналу в покажчику та, якщо його "
+"знайдено, додавання його до ІпП."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline.validationFailed"
+msgstr ""
+"Не вдалося перевірити індексацію журналу в MEDLINE. Переконайтеся, що ваш "
+"журнал проіндексовано, а відповідний ISSN налаштовано в налаштуваннях "
+"журналу."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step4"
+msgstr ""
+"Якщо журнал не проіндексовано, ось <a target=\"_new\" href=\"https://www."
+"elsevier.com/solutions/scopus/how-scopus-works/content/content-policy-and-"
+"selection\">процес</a> включення."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step1"
+msgstr ""
+"Перейдіть на сторінку <a href=\"https://mjl.clarivate.com/search-results\" "
+"target=\"_new\">Web of Science</a> і введіть назву журналу в поле пошуку."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step4"
+msgstr ""
+"Якщо журнал не індексовано, ось <a target=\"_new\" href=\"https://clarivate."
+"com/products/scientific-and-academic-research/"
+"research-discovery-and-workflow-solutions/webofscience-platform/"
+"web-of-science-core-collection/editorial-selection-process/\">процес</a> "
+"включення."
