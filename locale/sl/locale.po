@@ -1,0 +1,176 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-07-11 04:07+0000\n"
+"Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
+"Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/plugins/"
+"pflPlugin/sl/>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "plugins.generic.pflPlugin.settings.journal"
+msgstr "Podatki o reviji"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart"
+msgstr "Začetni datum"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.invalid"
+msgstr "Prosimo preverite, da bo začetni datum veljaven."
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing"
+msgstr "Vtičnik za financiranje ni na voljo"
+
+msgid "plugins.generic.pflPlugin.settings.indexes"
+msgstr "Seznam indeksiranja revije"
+
+msgid "plugins.generic.pfl.displayName"
+msgstr "Vtičnik za infromacije o objavi"
+
+msgid "plugins.generic.pfl.metric"
+msgstr "Metrika"
+
+msgid "plugins.generic.pflPlugin.settings.excludePrior"
+msgstr "Izključi pred datumom"
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl"
+msgstr "URL"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic"
+msgstr "Seznam avtomatskih indeksov v SOR"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj"
+msgstr "DOAJ"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj.validationFailed"
+msgstr ""
+"Indeksiranja revije v DOAJ ni bilo mogoče preveriti. Preverite, da je revija "
+"res indeksirana v DOAJ in ima v Nastavitvah revije nastavljen pravi ISSN."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.scholar"
+msgstr "Google Scholar"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline"
+msgstr "MEDLINE"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline.validationFailed"
+msgstr ""
+"Indeksiranja revije v MEDLINE ni bilo mogoče preveriti. Preverite, da je "
+"revija res indeksirana v MEDLINE in ima v Nastavitvah revije nastavljen "
+"pravi ISSN."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex"
+msgstr "Latindex"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex.validationFailed"
+msgstr ""
+"Indeksiranja revije v Latindex ni bilo mogoče preveriti. Preverite, da je "
+"revija res indeksirana v Latindex in ima v Nastavitvah revije nastavljen "
+"pravi ISSN."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual"
+msgstr "Ročni seznam indeksiranj v SOR"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus"
+msgstr ""
+"<strong>Scopus</strong> (<a target=\"_new\" href=\"https://en.wikipedia.org/"
+"wiki/Scopus\">Info</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.urlInvalid"
+msgstr ""
+"Vpisani Scopus URL ni pravi. Prosimo preberite navodila in poskusite ponovno."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step1"
+msgstr ""
+"Pojdite na ' <a href=\"https://www.scopus.com/sources."
+"uri?zone=TopNavBar&origin=\" target=\"_new\">Scopus</a> spletno stran in "
+"izberite \"Naslov\" iz spustnega menija."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step2"
+msgstr ""
+"Vpišite naslov revije in, če je indeksirana, se bo pojavilo kot \"Result\"."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step3"
+msgstr "Kliknite na naslov in vnesite pripadajoči URL strani sem:"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step4"
+msgstr ""
+"Če revija ni indekisrana, lahko pogledate <a target=\"_new\" href=\"https"
+"://www.elsevier.com/solutions/scopus/how-scopus-works/content/content-policy-"
+"and-selection\">postopek</a> za vključitev v indekisranje."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos"
+msgstr ""
+"<strong>Web of Science</strong> (<a target=\"_new\" href=\"https://en."
+"wikipedia.org/wiki/Web_of_Science\">Info</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step1"
+msgstr ""
+"Pojdite na <a href=\"https://mjl.clarivate.com/search-results\" target=\"_new"
+"\">Web of Science</a> in vnesite naslove revije v iskalno polje."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step2"
+msgstr "Če je revija indeksirana, se bo pojavila pod \"Result\"."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step3"
+msgstr "Skopirajte URL z uporabo \"Share This Journal\" in ga vnesite sem:"
+
+msgid "plugins.generic.pfl.percentage"
+msgstr "{$num}%"
+
+msgid "plugins.generic.pfl.academicSociety"
+msgstr "Akademska družba"
+
+msgid "plugins.generic.pfl.academicSociety.fieldLabel"
+msgstr "Ime družbe ali okrajšava"
+
+msgid "plugins.generic.pfl.description"
+msgstr ""
+"Vtičnik doda blok v stransko vrstico, ki bralcem prikaže značilne statistike "
+"revije."
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.description"
+msgstr ""
+"Če vaša revija ni uporabljala OJS uredniški proces do določenega datuma, "
+"lahko t adatum tukaj določite, da se iz statistik izvzamejo prispevki pred "
+"tem datumom. Podatki o izdaji se ne bodo prikazali pri člankih pred tem "
+"datumom."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl.invalid"
+msgstr ""
+"URL akademske družbe ni pravilen. Prosimo zagotovite, da bo URL celoten in "
+"pravilne oblike."
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing.description"
+msgstr ""
+"Vtičnik za financiranje ni na voljo ali je onemogočen. Da bi se podatki o "
+"financiranju prikazovali pri podatkih o reviji, morate ta vtičnik namestiti "
+"in omogočiti ter pri vsakem članku zagotoviti potrebne podatke. Preverite v "
+"katalogu vtičnikov."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.description"
+msgstr ""
+"Pod naslovom \"Indeksirano pri\" v bloku o statistikah objave revije (SOR) "
+"bodo bralcem prikazani največ štirje indeksi, ki indeksirajo revijo. Štirje "
+"indeksi spodaj imajo širšo pokritost, medtem ko MEDLINE pokriva le "
+"zdravniško znanost in Latindex pokriva le Latinsko Ameriko. Ti indeksi "
+"omogočajo javno prikazovanje indeksov njihovih revij (tudi v primeru, ko so "
+"indeksi drugače zaprti). Dva indeksa se lahko avtomatično preveri, medtem ko "
+"je potrebne za ostale štiri indekse poiskati revijo v indeksu in jo dodati v "
+"vtičnik."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.urlInvalid"
+msgstr ""
+"URL za Web of Science ki ste ga vnesli ni pravilen. Prosimo preberite "
+"navodila in poskusite ponovno."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step4"
+msgstr ""
+"Če revija ni indeksirana, je tukaj <a target=\"_new\" href=\"https"
+"://clarivate.com/products/scientific-and-academic-research/"
+"research-discovery-and-workflow-solutions/webofscience-platform/"
+"web-of-science-core-collection/editorial-selection-process/\">postopek</a> "
+"za vključitev."
