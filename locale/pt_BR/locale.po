@@ -1,2 +1,184 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-08-04 17:01+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
+"publication-facts-label/pflPlugin/pt_BR/>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "plugins.generic.pfl.metric"
+msgstr "Métrica"
+
+msgid "plugins.generic.pflPlugin.settings.journal"
+msgstr "Sobre a Revista"
+
+msgid "plugins.generic.pflPlugin.settings.excludePrior"
+msgstr "Excluir por Data"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart"
+msgstr "Data de Início"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.invalid"
+msgstr "Por favor, verifique se a data de início especificada é válida."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl"
+msgstr "URL"
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl.invalid"
+msgstr ""
+"A URL da sociedade acadêmica não é válida. Certifique-se de que a URL está "
+"completa e corretamente formatada."
+
+msgid "plugins.generic.pflPlugin.settings.indexes"
+msgstr "Listagens de Indexação da Revista"
+
+msgid "plugins.generic.pfl.displayName"
+msgstr "Plugin de Identificação de Dados da Publicação"
+
+msgid "plugins.generic.pfl.description"
+msgstr ""
+"Este plugin adiciona um bloco na barra lateral com estatísticas para indicar "
+"aos leitores as características de integridade da revista."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic"
+msgstr ""
+"Inclusão Automatizada de Indexadores na Identificação de Dados da Publicação "
+"(IDP)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj"
+msgstr "DOAJ – Diretório de Revistas de Acesso Aberto"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj.validationFailed"
+msgstr ""
+"A indexação da revista no DOAJ não pôde ser verificada. Certifique-se de que "
+"sua revista está indexada e de que o ISSN apropriado está configurado nas "
+"Configurações da Revista."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.scholar"
+msgstr "Google Acadêmico"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline"
+msgstr "MEDLINE"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline.validationFailed"
+msgstr ""
+"A indexação da revista na MEDLINE não pôde ser verificada. Certifique-se de "
+"que sua revista está indexada e de que o ISSN apropriado está configurado "
+"nas Configurações da Revista."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex"
+msgstr "Latindex"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual"
+msgstr ""
+"Inclusão Manual de Indexadores na Identificação de Dados da Publicação (IDP)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus"
+msgstr ""
+"<strong>Scopus</strong> (<a target=\"_new\" href=\"https://en.wikipedia.org/"
+"wiki/Scopus\">Informações</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.urlInvalid"
+msgstr ""
+"A URL do Scopus que você inseriu não está correta. Por favor, leia as "
+"instruções e tente novamente."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step1"
+msgstr ""
+"Acesse a página <a href=\"https://www.scopus.com/sources."
+"uri?zone=TopNavBar&origin=\" target=\"_new\">Fontes</a> do Scopus e "
+"selecione “Title” no menu suspenso."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step3"
+msgstr "Clique no título e cole aqui a URL da página resultante:"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step4"
+msgstr ""
+"Se a revista não estiver indexada, aqui está o <a target=\"_new\" href="
+"\"https://www.elsevier.com/solutions/scopus/how-scopus-works/content/content-"
+"policy-and-selection\">processo</a> para inclusão."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.urlInvalid"
+msgstr ""
+"A URL do Web of Science que você inseriu não está correta. Por favor, leia "
+"as instruções e tente novamente."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step1"
+msgstr ""
+"Acesse o <a href=\"https://mjl.clarivate.com/search-results\" target=\"_new\""
+">Web of Science</a> e digite o nome da revista na caixa de pesquisa."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step2"
+msgstr ""
+"Se estiver indexada no Web of Science, a revista aparecerá como um \"Result\""
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step3"
+msgstr "Copie a URL em \"Share This Journal\" e cole aqui:"
+
+msgid "plugins.generic.pfl.percentage"
+msgstr "{$num}%"
+
+msgid "plugins.generic.pfl.academicSociety"
+msgstr "Sociedade Acadêmica"
+
+msgid "plugins.generic.pfl.academicSociety.fieldLabel"
+msgstr "Nome ou sigla da sociedade acadêmica"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.description"
+msgstr ""
+"Se sua revista não utilizava o fluxo editorial do OJS antes de uma "
+"determinada data, especifique essa data aqui para excluir submissões "
+"anteriores da coleta de estatísticas. A Identificação de Dados da Publicação "
+"não será exibida nas submissões anteriores a essa data."
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing"
+msgstr "Plugin de Financiamento Ausente"
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing.description"
+msgstr ""
+"O plugin de financiamento não está presente nem habilitado. Para que os "
+"dados de financiamento sejam exibidos pela Identificação de Dados da "
+"Publicação, este plugin precisará ser instalado e habilitado, além de "
+"alimentado com os dados relevantes de cada submissão. Verifique a Galeria de "
+"Plugins para localizar esse plugin."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.description"
+msgstr ""
+"Sob o título \"Indexada\" na Identificação de Dados da Publicação (IDP), os "
+"leitores verão até quatro indexadores nos quais a revista está incluída. "
+"Quatro dos indexadores listados abaixo oferecem ampla cobertura, enquanto o "
+"MEDLINE cobre as ciências da saúde e o Latindex cobre a América Latina (veja "
+"mais informações abaixo). Os indexadores permitem que a listagem da revista "
+"seja exibida publicamente (mesmo quando o indexador for fechado ao público). "
+"Enquanto dois dos indexadores podem ser verificados automaticamente, os "
+"outros quatro exigem que você pesquise a revista no indexador e, se ela for "
+"encontrada, adicione-a manualmente ao IDP."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex.validationFailed"
+msgstr ""
+"A indexação da revista no Latindex não pôde ser verificada. Certifique-se de "
+"que sua revista está indexada e de que o ISSN apropriado está configurado "
+"nas Configurações da Revista."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step2"
+msgstr ""
+"Digite o título da revista e, se ela estiver indexada, aparecerá como um "
+"\"Result\""
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos"
+msgstr ""
+"<strong>Web of Science</strong> (<a target=\"_new\" href=\"https://pt."
+"wikipedia.org/wiki/Web_of_Science\">Informações</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step4"
+msgstr ""
+"Se a revista não estiver indexada, aqui está o <a target=\"_new\" href="
+"\"https://clarivate.com/products/scientific-and-academic-research/"
+"research-discovery-and-workflow-solutions/webofscience-platform/"
+"web-of-science-core-collection/editorial-selection-process/\">processo</a> "
+"para inclusão."
