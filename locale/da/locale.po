@@ -1,2 +1,182 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-08-07 07:51+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/"
+"publication-facts-label/pflPlugin/da/>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "plugins.generic.pfl.metric"
+msgstr "Metrik"
+
+msgid "plugins.generic.pflPlugin.settings.journal"
+msgstr "Tidsskriftsinformation"
+
+msgid "plugins.generic.pflPlugin.settings.excludePrior"
+msgstr "Ekskluder efter dato"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart"
+msgstr "Startdato"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.invalid"
+msgstr "Dobbelttjek venligst at den angivne startdato er gyldig."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl"
+msgstr "URL"
+
+msgid "plugins.generic.pfl.academicSociety.fieldLabel"
+msgstr "Foreningsnavn eller -akronym"
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing"
+msgstr "Finansieringsplugin er ikke til stede"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic"
+msgstr "Automatisk indeksnotering i PFL"
+
+msgid "plugins.generic.pflPlugin.settings.indexes"
+msgstr "Tidsskriftets indeksnoteringer"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj"
+msgstr "Directory of Open Access Journals (DOAJ)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj.validationFailed"
+msgstr ""
+"Tidsskriftets indeksering i DOAJ kunne ikke verificeres. Sikr dig at dit "
+"tidsskrift er indekseret, og at den korrekte ISSN fremgår i "
+"tidsskriftindstillingerne."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.scholar"
+msgstr "Google Scholar"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline"
+msgstr "MEDLINE"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline.validationFailed"
+msgstr ""
+"Tidsskriftets indeksering i MEDLINE kunne ikke verificeres. Sikr dig at dit "
+"tidsskrift er indekseret, og at den korrekte ISSN fremgår i "
+"tidsskriftindstillingerne."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex"
+msgstr "Latindex"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex.validationFailed"
+msgstr ""
+"Tidsskriftets indeksering i Latindex kunne ikke verificeres. Sikr dig at dit "
+"tidsskrift er indekseret, og at den korrekte ISSN fremgår i "
+"tidsskriftindstillingerne."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual"
+msgstr "Manuel indeksnotering i PFL"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus"
+msgstr ""
+"<strong>Scopus</strong> (<a target=\"_new\" href=\"https://en.wikipedia.org/"
+"wiki/Scopus\">Info</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.urlInvalid"
+msgstr ""
+"Den Scopus URL du har angivet er ikke korrekt. Læs venligst instruktionerne "
+"og forsøg igen."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step1"
+msgstr ""
+"Gå til Scopus' <a href=\"https://www.scopus.com/sources."
+"uri?zone=TopNavBar&origin=\" target=\"_new\">Sources</a> side og vælg \"Title"
+"\" fra rullelisten."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step2"
+msgstr ""
+"Angiv tidsskriftets titel. Hvis det er indekseret, vil det fremgå under "
+"\"Result\"."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step3"
+msgstr "Klik på titlen og indsæt den resulterende sides URL her:"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos"
+msgstr ""
+"<strong>Web of Science</strong> (<a target=\"_new\" href=\"https://en."
+"wikipedia.org/wiki/Web_of_Science\">Info</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.urlInvalid"
+msgstr ""
+"Den Web of Science URL du har angivet, er ikke korrekt. Læs venligst "
+"instruktionerne og forsøg igen."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step1"
+msgstr ""
+"Gå til <a href=\"https://mjl.clarivate.com/search-results\" target=\"_new\""
+">Web of Science</a> og skriv tidsskriftets navn i søgeboksen."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step2"
+msgstr ""
+"Hvis det er indekseret i Web of Science, så vil det dukke op under \"Result\""
+"."
+
+msgid "plugins.generic.pfl.percentage"
+msgstr "{$num}%"
+
+msgid "plugins.generic.pfl.academicSociety"
+msgstr "Forening"
+
+msgid "plugins.generic.pfl.description"
+msgstr ""
+"Dette plugin tilføjer en blok i sidebjælken med statistik, som fortæller "
+"læsere om tidsskriftets integritetskarakteristika."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl.invalid"
+msgstr ""
+"Den akademiske forenings URL er ikke gyldig. Tjek venligst at URL'en er "
+"komplet og korrekt formateret."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.description"
+msgstr ""
+"Under overskriften 'Indeksering' i publikationsfaktalabelen (PFL), bliver "
+"læsere præsenteret for op til fire indeks, som tidsskriftet indgår i. Fire "
+"af indeksene nedenfor giver bred dækning, mens MEDLINE dækker "
+"sundhedsvidenskab, og Latindex dækker Latinamerika (se information nedenfor)"
+". Disse indeks giver mulighed for at fremvise indekserede tidsskrifter "
+"offentligt (selv når indekset ellers er lukket). Mens to af indeksene kan "
+"kontrolleres automatisk, kræver de andre fire, at du søger efter "
+"tidsskriftet i indekset, og hvis det findes, skal du tilføje det til "
+"publikationsfaktalabelen (PFL)."
+
+msgid "plugins.generic.pfl.displayName"
+msgstr "Publikationsfaktalabel plugin"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.description"
+msgstr ""
+"Hvis dit tidsskrift ikke har brugt OJS's redaktionelle workflow før en "
+"bestemt dato, så angiv denne dato her for at ekskludere indsendelser før "
+"dette fra statistikken. Publikationsfaktalabelen vil ikke blive vist på "
+"indsendelser før denne dato."
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing.description"
+msgstr ""
+"Finansieringspluginet er ikke til stede og aktiveret. For at få vist "
+"finansieringsdato i publikationsfaktalabelen, skal dette plugin være "
+"installeret og aktiveret, og der skal være angivet relevant information for "
+"hver indsendelse. Tjek plugin-samlingen for at finde dette plugin."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step4"
+msgstr ""
+"Hvis tidsskriftet ikke er indekseret, kan du se på <a target=\"_new\" href="
+"\"https://www.elsevier.com/solutions/scopus/how-scopus-works/content/content-"
+"policy-and-selection\">processen</a> for inklusion."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step3"
+msgstr ""
+"Kopier URL'en ved at klikke på \"Share This Journal\" og indsæt den her:"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step4"
+msgstr ""
+"Hvis tidsskriftet ikke er indekseret, så se <a target=\"_new\" href=\"https"
+"://clarivate.com/products/scientific-and-academic-research/"
+"research-discovery-and-workflow-solutions/webofscience-platform/"
+"web-of-science-core-collection/editorial-selection-process/\">processen</a> "
+"for inklusion."
