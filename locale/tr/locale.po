@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-04 08:12+0000\n"
+"PO-Revision-Date: 2025-09-04 08:14+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/"
 "publication-facts-label/pflPlugin/tr/>\n"
@@ -73,3 +73,9 @@ msgstr ""
 "kapalı olsa bile). İki dizin otomatik olarak kontrol edilebilirken, diğer "
 "dört dizin için dergi, ilgili dizin içinde aranarak, bulunursa PFL’ye "
 "eklemeniz gerekir."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic"
+msgstr "PFL’de Dizinlerin Otomatik Listelenmesi"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj"
+msgstr "Directory of Open Access Journals (DOAJ)"
