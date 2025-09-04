@@ -82,7 +82,7 @@ msgstr "Directory of Open Access Journals (DOAJ)"
 
 msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj.validationFailed"
 msgstr ""
-"Derginin DOAJ’de dizinlenme durumu doğrulanamadı. Derginizin "
+"Derginin DOAJ’da dizinlenme durumu doğrulanamadı. Derginizin "
 "dizinlendiğinden ve doğrı ISSN bilgisinin Dergi Ayarları’nda "
 "yapılandırıldığından emin olun."
 
