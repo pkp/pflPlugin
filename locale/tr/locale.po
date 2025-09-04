@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-04 08:14+0000\n"
+"PO-Revision-Date: 2025-09-04 08:18+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/"
 "publication-facts-label/pflPlugin/tr/>\n"
@@ -79,3 +79,15 @@ msgstr "PFL’de Dizinlerin Otomatik Listelenmesi"
 
 msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj"
 msgstr "Directory of Open Access Journals (DOAJ)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj.validationFailed"
+msgstr ""
+"Derginin DOAJ’de dizinlenme durumu doğrulanamadı. Derginizin "
+"dizinlendiğinden ve doğrı ISSN bilgisinin Dergi Ayarları’nda "
+"yapılandırıldığından emin olun."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.scholar"
+msgstr "Google Akademik"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline"
+msgstr "MEDLINE"
