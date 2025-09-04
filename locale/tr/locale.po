@@ -1,2 +1,75 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-09-04 08:12+0000\n"
+"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/"
+"publication-facts-label/pflPlugin/tr/>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "plugins.generic.pfl.metric"
+msgstr "Ölçüm"
+
+msgid "plugins.generic.pflPlugin.settings.journal"
+msgstr "Dergi Bilgileri"
+
+msgid "plugins.generic.pflPlugin.settings.excludePrior"
+msgstr "Tarihe Göre Hariç Tut"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart"
+msgstr "Başlangıç Tarihi"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.invalid"
+msgstr ""
+"Lütfen belirtilen başlangıç tarihinin geçerli olduğunu tekrar kontrol edin."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl"
+msgstr "URL"
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing"
+msgstr "Finansman Eklentisi Mevcut Değil"
+
+msgid "plugins.generic.pflPlugin.settings.indexes"
+msgstr "Dergi Dizin Listesi"
+
+msgid "plugins.generic.pfl.displayName"
+msgstr "Yayın Bilgileri Etiketi eklentisi"
+
+msgid "plugins.generic.pfl.description"
+msgstr ""
+"Bu eklenti, okuyuculara derginin güvenilirlik özelliklerini göstermek için "
+"istatistiklerin yer aldığı bir kenar bloğu ekler."
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.description"
+msgstr ""
+"Eğer derginiz belirli bir tarihten önce OJS’nin editoryal iş akışını "
+"kullanmadıysa, istatistiklerin toplanmasında o tarihten önceki gönderileri "
+"hariç tutmak için buraya tarih girin. Yayın Bilgileri Etiketi, bu tarihten "
+"önceki gönderilerde gösterilmeyecektir."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl.invalid"
+msgstr ""
+"Akademik kuruluşun URL'si geçerli değil. Lütfen URL'nin eksiksiz ve doğru "
+"biçimlendirilmiş olduğundan emin olun."
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing.description"
+msgstr ""
+"Finansman eklentisi yüklü ve etkin değil. Yayın Bilgileri Etiketi tarafından "
+"finansman verilerinin gösterilebilmesi için bu eklentinin kurulması, "
+"etkinleştirilmesi ve her gönderi için ilgili verilerin sağlanması gerekir. "
+"Bu eklentiyi Eklenti Galerisi’nde kontrol edin."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.description"
+msgstr ""
+"Yayın Bilgileri Etiketi (PFL) içindeki “Dizinler” başlığı altında, "
+"okuyuculara derginin yer aldığı en fazla dört dizin gösterilecektir. Burada "
+"yer alan dört dizin geniş kapsam sunar. MEDLINE sağlık bilimlerini, Latindex "
+"ise Latin Amerika’yı kapsar (detaylar için aşağıya bakınız). Dizinler, "
+"derginizin listelenmesini kamuya açık olarak gösterebilir (dizin normalde "
+"kapalı olsa bile). İki dizin otomatik olarak kontrol edilebilirken, diğer "
+"dört dizin için dergi, ilgili dizin içinde aranarak, bulunursa PFL’ye "
+"eklemeniz gerekir."
