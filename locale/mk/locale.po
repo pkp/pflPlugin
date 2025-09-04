@@ -1,2 +1,183 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-09-07 04:30+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/"
+"publication-facts-label/pflPlugin/mk/>\n"
+"Language: mk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "plugins.generic.pfl.metric"
+msgstr "Метрика"
+
+msgid "plugins.generic.pflPlugin.settings.journal"
+msgstr "Информации за списанието"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.invalid"
+msgstr "Проверете уште еднаш дали наведениот датум на почеток е важечки."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl"
+msgstr "УРЛ"
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl.invalid"
+msgstr ""
+"URL-адресата на академското друштво не е валидна. Проверете дали URL-"
+"адресата е комплетна и правилно форматирана."
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing"
+msgstr "Додатокот за финансирање не е присутен"
+
+msgid "plugins.generic.pflPlugin.settings.indexes"
+msgstr "Индекс на листи на списанија"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic"
+msgstr "Автоматизирано прикажување на индекси во PFL"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj"
+msgstr "Именик на списанија со отворен пристап"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj.validationFailed"
+msgstr ""
+"Индексирањето на списанието во DOAJ не можеше да се потврди. Осигурете се "
+"дека вашето списание е индексирано и дека соодветниот ISSN е конфигуриран во "
+"Поставките на списанието."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.scholar"
+msgstr "Гугл Сколар"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual"
+msgstr "Рачно наведување на индекси во PFL"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus"
+msgstr ""
+"<strong>Scopus</strong> (<a target=\"_new\" href=\"https://en.wikipedia.org/"
+"wiki/Scopus\">Информации</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.urlInvalid"
+msgstr ""
+"URL-адресата на Scopus што ја внесовте не е точна. Прочитајте ги упатствата "
+"и обидете се повторно."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step3"
+msgstr ""
+"Кликнете на насловот и залепете ја URL-адресата на добиената страница тука:"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos"
+msgstr ""
+"<strong>Веб на науката</strong> (<a target=\"_new\" href=\"https://en."
+"wikipedia.org/wiki/Web_of_Science\">Информации</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step1"
+msgstr ""
+"Одете на <a href=\"https://mjl.clarivate.com/search-results\" target=\"_new\""
+">Веб на науката</a> и внесете го името на списанието во полето за "
+"пребарување."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step2"
+msgstr "Ако е индексирано во Web of Science, ќе се појави како „Резултат.“"
+
+msgid "plugins.generic.pfl.percentage"
+msgstr "{$num}%"
+
+msgid "plugins.generic.pfl.academicSociety.fieldLabel"
+msgstr "Име на друштвото или кратенка"
+
+msgid "plugins.generic.pfl.displayName"
+msgstr "Додаток за етикета со факти за публикации"
+
+msgid "plugins.generic.pfl.description"
+msgstr ""
+"Овој приклучок додава блок на страничната лента со статистика за да им ги "
+"покаже карактеристиките на интегритетот на списанието на читателите."
+
+msgid "plugins.generic.pflPlugin.settings.excludePrior"
+msgstr "Исклучи по датум"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart"
+msgstr "Датум на почеток"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.description"
+msgstr ""
+"Доколку вашето списание не го користело уредничкиот работен тек на OJS пред "
+"одреден датум, наведете го тоа овде за да ги исклучите претходните поднесоци "
+"од збирката статистика. Ознаката за факти за објавување нема да се прикажува "
+"на поднесоците пред овој датум."
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing.description"
+msgstr ""
+"Додатокот за финансирање не е присутен и овозможен. За податоците за "
+"финансирање да бидат презентирани од етикетата за факти за објавување, овој "
+"додаток ќе треба да биде инсталиран и овозможен, како и да биде обезбеден со "
+"релевантните податоци за секое поднесување. Проверете ја Галеријата на "
+"додатоци за овој додаток."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.description"
+msgstr ""
+"Под насловот „Индексирано“ во етикетата за факти за публикации (PFL), на "
+"читателите ќе им бидат претставени до четири индекси во кои се појавува "
+"списанието. Четири од индексите подолу нудат широка покриеност, додека "
+"MEDLINE ги опфаќа здравствените науки, а Latindex ја опфаќа Латинска Америка "
+"(видете Информации подолу). Индексите овозможуваат нивното објавување на "
+"списанија јавно да се прикажува (дури и кога индексот е затворен на друг "
+"начин). Додека два од индексите можат автоматски да се проверат, другите "
+"четири бараат да го пребарате списанието во индексот и, доколку се пронајде, "
+"да го додадете во PFL."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline"
+msgstr "МЕДЛАЈН"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline.validationFailed"
+msgstr ""
+"Индексирањето на списанието во MEDLINE не можеше да се потврди. Осигурете се "
+"дека вашето списание е индексирано и дека соодветниот ISSN е конфигуриран во "
+"Поставките на списанието."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex"
+msgstr "Латиндекс"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex.validationFailed"
+msgstr ""
+"Индексирањето на списанието во Latindex не можеше да се потврди. Осигурете "
+"се дека вашето списание е индексирано и дека соодветниот ISSN е конфигуриран "
+"во Поставките на списанието."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step1"
+msgstr ""
+"Одете на страницата <a href=\"https://www.scopus.com/sources."
+"uri?zone=TopNavBar&origin=\" target=\"_new\">Извори</a> на Scopus и изберете "
+"„Наслов“ од паѓачкото мени."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step2"
+msgstr ""
+"Внесете го насловот на списанието и ако е индексирано, ќе се појави како "
+"„Резултат.“"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step4"
+msgstr ""
+"Доколку списанието не е индексирано, еве го <a target=\"_new\" href=\"https"
+"://www.elsevier.com/solutions/scopus/how-scopus-works/content/content-policy-"
+"and-selection\">процесот</a> за вклучување."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.urlInvalid"
+msgstr ""
+"URL-адресата на Web of Science што ја внесовте не е точна. Ве молиме "
+"прочитајте ги упатствата и обидете се повторно."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step3"
+msgstr ""
+"Копирајте ја URL-адресата преку „Сподели го овој дневник“ и залепете ја тука:"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step4"
+msgstr ""
+"Доколку списанието не е индексирано, еве го <a target=\"_new\" href=\"https"
+"://clarivate.com/products/scientific-and-academic-research/"
+"research-discovery-and-workflow-solutions/webofscience-platform/"
+"web-of-science-core-collection/editorial-selection-process/\">процесот</a> "
+"за вклучување."
+
+msgid "plugins.generic.pfl.academicSociety"
+msgstr "Општество"
