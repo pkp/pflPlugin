@@ -1,2 +1,177 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-09-07 04:30+0000\n"
+"Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
+"Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/"
+"publication-facts-label/pflPlugin/id/>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "plugins.generic.pfl.metric"
+msgstr "Metrik"
+
+msgid "plugins.generic.pflPlugin.settings.journal"
+msgstr "Informasi Jurnal"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart"
+msgstr "Tanggal Mulai"
+
+msgid "plugins.generic.pflPlugin.settings.excludePrior"
+msgstr "Pengecualian Tanggal"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.invalid"
+msgstr "Mohon periksa kembali apakah tanggal mulai yang ditulis telah sesuai."
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing"
+msgstr "Plugin Pendanaan Tidak Muncul"
+
+msgid "plugins.generic.pflPlugin.settings.indexes"
+msgstr "Daftar Indeks Jurnal"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic"
+msgstr "Pencantuman Indeks Otomatis pada PFL"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj"
+msgstr "Directory of Open Access Journals"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.scholar"
+msgstr "Google Scholar"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline"
+msgstr "MEDLINE"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj.validationFailed"
+msgstr ""
+"Indeks jurnal pada DOAJ tidak dapat diverifikasi. Pastikan bahwa jurnal anda "
+"terindeks dan ISSN yang sesuai dikonfigurasi pada Journal Settings."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex"
+msgstr "Latindex"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual"
+msgstr "Pencantuman Indeks Manual pada PFL"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus"
+msgstr ""
+"<strong>Scopus</strong> (<a target=\"_new\" href=\"https://en.wikipedia.org/"
+"wiki/Scopus\">Info</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.urlInvalid"
+msgstr ""
+"Alamat URL Scopus yang anda masukkan tidak tepat. Mohon baca instruksi dan "
+"coba kembali."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step4"
+msgstr ""
+"Jika jurnal tidak terindeks, berikut <a target=\"_new\" href=\"https://www."
+"elsevier.com/solutions/scopus/how-scopus-works/content/content-policy-and-"
+"selection\">proses</a> untuk pencantumannya."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos"
+msgstr ""
+"<strong>Web of Science</strong> (<a target=\"_new\" href=\"https://en."
+"wikipedia.org/wiki/Web_of_Science\">Info</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.urlInvalid"
+msgstr ""
+"Alamat URL Web of Science yang dimasukkan tidak sesuai. Mohon baca instruksi "
+"dan coba kembali."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step2"
+msgstr ""
+"Masukkan judul jurnal dan jika terindeks, jurnal akan muncul sebagai \"Result"
+".\""
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step1"
+msgstr ""
+"Kunjungi <a href=\"https://mjl.clarivate.com/search-results\" target=\"_new\""
+">Web of Science</a> dan masukkan nama jurnal pada kotak pencarian."
+
+msgid "plugins.generic.pfl.percentage"
+msgstr "{$num}%"
+
+msgid "plugins.generic.pfl.academicSociety"
+msgstr "Komunitas"
+
+msgid "plugins.generic.pfl.academicSociety.fieldLabel"
+msgstr "Nama komunitas atau akronim"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step2"
+msgstr ""
+"Jika terindeks pada Web of Science, jurnal akan muncul sebagai \"Result.\""
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step3"
+msgstr "Salin alamat URL pada \"Share This Journal\" dan tempel di sini:"
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl"
+msgstr "Alamat URL"
+
+msgid "plugins.generic.pfl.displayName"
+msgstr "Plugin Label Fakta Penerbitan"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.description"
+msgstr ""
+"Jika jurnal anda tidak menggunakan alur kerja editorial OJS sebelum tanggal "
+"tertentu, tulis di sini untuk mengeluarkan pengiriman naskah sebelumnya dari "
+"statistik. Label Fakta Penerbitan tidak akan ditampilkan pada pengiriman "
+"naskah di tanggal tersebut."
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing.description"
+msgstr ""
+"Plugin Pendanaan tidak tampil dan diaktifkan. Untuk menampilkan data "
+"pendanaan pada Label Fakta Penerbitan, plugin ini perlu diinstal dan "
+"diaktifkan, dan dilengkapi dengan data yang relevan untuk setiap naskah yang "
+"dikirimkan. Periksa Plugin Gallery untuk plugin ini."
+
+msgid "plugins.generic.pfl.description"
+msgstr ""
+"Plugin ini menambahkan blok sidebar dilengkapi dengan statistik yang "
+"mengidentifikasi karakteristik integritas jurnal bagi pembaca."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl.invalid"
+msgstr ""
+"Alamat URL dari komunitas akademik tidak valid. Pastikan alamat URL sudah "
+"lengkap dan diformat dengan benar."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline.validationFailed"
+msgstr ""
+"Indeks jurnal pada MEDLINE tidak dapat diverifikasi. Pastikan jurnal anda "
+"terindeks dan ISSN yang sesuai dikonfigurasi pada Journal Settings."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex.validationFailed"
+msgstr ""
+"Indeks jurnal pada Latindex tidak dapat diverifikasi. Pastikan jurnal anda "
+"terindeks dan ISSN yang sesuai dikonfigurasi pada Journal Settings."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step1"
+msgstr ""
+"Kunjungi Scopus' <a href=\"https://www.scopus.com/sources."
+"uri?zone=TopNavBar&origin=\" target=\"_new\">Sources</a> dan pilih \"Title\" "
+"dari menu pulldown."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step4"
+msgstr ""
+"Jika jurnal tidak terindeks, berikut <a target=\"_new\" href=\"https"
+"://clarivate.com/products/scientific-and-academic-research/"
+"research-discovery-and-workflow-solutions/webofscience-platform/"
+"web-of-science-core-collection/editorial-selection-process/\">proses</a> "
+"untuk pencantumannya."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step3"
+msgstr ""
+"Klik pada judul dan tempel alamat URL dari halaman yang dihasilkan di sini:"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.description"
+msgstr ""
+"Di bawah tajuk \"Indexed: pada Label Fakta Penerbitan (PFL), akan "
+"ditampilkan kepada pembaca, empat indeks dimana jurnal muncul. Empat indeks "
+"di bawah ini menawarkan cakupan yang luas, sementara MEDLINE mencakup ilmu "
+"kesehatan dan Latindex mencakup Amerika Latin (lihat info di bawah ini). "
+"Indeks tersebut memungkinkan pencatatan jurnal mereka ditampilkan untuk "
+"publik (bahkan jika indeks tertutup). Sementara dua indeks dapat diperiksa "
+"secara otomatis, empat indeks yang lain mengharuskan anda untuk mencari "
+"jurnal pada indeks dan, jika ditemukan, tambahkan pada PFL."
