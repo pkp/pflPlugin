@@ -1,2 +1,173 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-09-09 07:21+0000\n"
+"Last-Translator: Nina Trubanova <nina.trubanova@ucdconnect.ie>\n"
+"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/"
+"publication-facts-label/pflPlugin/cs/>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "plugins.generic.pfl.metric"
+msgstr "Metrika"
+
+msgid "plugins.generic.pflPlugin.settings.journal"
+msgstr "Informace o časopise"
+
+msgid "plugins.generic.pflPlugin.settings.excludePrior"
+msgstr "Vyloučit podle data"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart"
+msgstr "Datum zahájení"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.invalid"
+msgstr "Zkontrolujte prosím, zda je zadané datum zahájení platné."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl"
+msgstr "URL"
+
+msgid "plugins.generic.pfl.displayName"
+msgstr "Plugin pro Štítek publikačních údajů"
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing"
+msgstr "Plugin pro Financování není k dispozici"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj"
+msgstr "Adresář Open Access časopisů"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj.validationFailed"
+msgstr ""
+"Indexování časopisu v DOAJ nebylo možné ověřit. Ujistěte se, že je váš "
+"časopis indexován a že je v nastavení časopisu zadáno správné ISSN."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.scholar"
+msgstr "Google Scholar"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline"
+msgstr "MEDLINE"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline.validationFailed"
+msgstr ""
+"Indexování časopisu v MEDLINE nebylo možné ověřit. Ujistěte se, že je váš "
+"časopis indexován a že je v nastavení časopisu zadáno správné ISSN."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex"
+msgstr "Latindex"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex.validationFailed"
+msgstr ""
+"Indexování časopisu v Latindexu nebylo možné ověřit. Ujistěte se, že je váš "
+"časopis indexován a že je v nastavení časopisu zadáno správné ISSN."
+
+msgid "plugins.generic.pflPlugin.settings.indexes"
+msgstr "Indexace časopisu"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual"
+msgstr "Ruční vypsání indexů ve Štítku publikačních údajů"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic"
+msgstr "Automatizované vypsání indexů ve Štítku publikačních údajů"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step2"
+msgstr "Zadejte název časopisu a pokud je indexován, zobrazí se jako „Result“."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.urlInvalid"
+msgstr ""
+"Zadaná URL adresa Web of Science není správná. Přečtěte si pokyny a zkuste "
+"to znovu."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step1"
+msgstr ""
+"Přejděte na stránku <a href=\"https://mjl.clarivate.com/search-results\" "
+"target=\"_new\">Web of Science</a> a do vyhledávacího pole zadejte název "
+"časopisu."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step2"
+msgstr "Pokud je indexován ve Web of Science, zobrazí se jako „Result“."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step3"
+msgstr ""
+"Zkopírujte URL adresu pomocí funkce „Share this journal“ a vložte ji sem:"
+
+msgid "plugins.generic.pfl.percentage"
+msgstr "{$num} %"
+
+msgid "plugins.generic.pfl.academicSociety"
+msgstr "Společnost"
+
+msgid "plugins.generic.pfl.academicSociety.fieldLabel"
+msgstr "Název společnosti nebo jeho zkratka"
+
+msgid "plugins.generic.pfl.description"
+msgstr ""
+"Tento plugin přidává do postranního panelu blok se statistikami, které "
+"čtenářům ukazují charakteristiky integrity časopisu."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl.invalid"
+msgstr ""
+"URL akademické společnosti není platná. Ujistěte se, že je URL úplná a "
+"správně formátovaná."
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.description"
+msgstr ""
+"Pokud váš časopis před určitým datem nevyužíval redakční workflow OJS, "
+"uveďte to zde, aby byly předchozí příspěvky vyloučeny ze sběru statistik. "
+"Štítek publikačních údajů nebude u příspěvků před tímto datem zobrazen."
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing.description"
+msgstr ""
+"Plugin pro Financování není nainstalován ani aktivován. Aby bylo možné "
+"zobrazit údaje o financování v sekci Štítek publikačních údajů, je nutné "
+"tento plugin nainstalovat, aktivovat a zadat příslušné údaje pro každé "
+"podání. Tento plugin najdete v galerii pluginů."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.description"
+msgstr ""
+"Pod nadpisem „Indexované“ v sekci Štítek publikačních údajů se čtenářům "
+"zobrazí až čtyři indexy, ve kterých je časopis uveden. Čtyři z níže "
+"uvedených indexů nabízejí široké pokrytí, zatímco MEDLINE pokrývá "
+"zdravotnické vědy a Latindex pokrývá Latinskou Ameriku (viz informace níže). "
+"Indexy umožňují veřejné zobrazení seznamu časopisů (i když je index jinak "
+"uzavřený). Zatímco dva z indexů lze zkontrolovat automaticky, u ostatních "
+"čtyř je nutné časopis v indexu vyhledat a v případě nalezení jej přidat do "
+"Štítku publikačních údajů."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.urlInvalid"
+msgstr ""
+"Zadaná URL adresa Scopusu není správná. Přečtěte si pokyny a zkuste to znovu."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step1"
+msgstr ""
+"Přejděte na stránku <a href=\"https://www.scopus.com/sources."
+"uri?zone=TopNavBar&origin=\" target=\"_new\">Sources</a> služby Scopus a z "
+"rozevíracího menu vyberte možnost „Title“."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step3"
+msgstr "Klikněte na název a vložte sem URL adresu najdené stránky:"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step4"
+msgstr ""
+"Pokud časopis není indexován, zde najdete <a target=\"_new\" href=\"https"
+"://www.elsevier.com/solutions/scopus/how-scopus-works/content/content-policy-"
+"and-selection\">postup</a> pro jeho zařazení."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step4"
+msgstr ""
+"Pokud časopis není indexován, zde najdete <a target=\"_new\" href=\"https"
+"://clarivate.com/products/scientific-and-academic-research/"
+"research-discovery-and-workflow-solutions/webofscience-platform/"
+"web-of-science-core-collection/editorial-selection-process/\">postup</a> pro "
+"zařazení."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus"
+msgstr ""
+"<strong>Scopus</strong> (<a target=\"_new\" href=\"https://cs.wikipedia.org/"
+"wiki/Scopus_(datab%C3%A1ze)\">Více informací</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos"
+msgstr ""
+"<strong>Web of Science</strong> (<a target=\"_new\" href=\"https://cs."
+"wikipedia.org/wiki/Web_of_Science\">Více informací</a>)"
