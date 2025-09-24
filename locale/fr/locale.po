@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-17 00:22+0000\n"
+"PO-Revision-Date: 2025-09-25 22:51+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/"
 "publication-facts-label/pflPlugin/fr/>\n"
@@ -31,7 +31,7 @@ msgstr "Latindex"
 
 msgid "plugins.generic.pfl.description"
 msgstr ""
-"Ce plugin ajoute dans la barre latérale un bloc présentant des indicateurs à "
+"Ce module ajoute dans la barre latérale un bloc présentant des indicateurs à "
 "propos de l'intégrité de journal."
 
 msgid "plugins.generic.pflPlugin.settings.excludePrior"
@@ -44,3 +44,141 @@ msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus"
 msgstr ""
 "<strong>Scopus</strong> (<a target=\"_new\" href=\"https://fr.wikipedia.org/"
 "wiki/Scopus\">Info</a>)"
+
+msgid "plugins.generic.pfl.metric"
+msgstr "Métrique"
+
+msgid "plugins.generic.pflPlugin.settings.journal"
+msgstr "Information sur le journal"
+
+#, fuzzy
+msgid "plugins.generic.pfl.displayName"
+msgstr "Module d'étiquette de valeur éditoriale"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.description"
+msgstr ""
+"Si votre journal n'utilisait pas le processus de gestion éditoriale d'OJS "
+"avant une certaine date, mentionnez-la ici afin d'exclure les soumissions "
+"antérieures à cette date dans la collecte des statistiques. L'étiquette de "
+"valeur éditoriale ne s'affichera pas sur les anciennes soumissions."
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing"
+msgstr "Module \"Données de Fonds\" inexistant"
+
+#, fuzzy
+msgid "plugins.generic.pflPlugin.settings.indexes"
+msgstr "Listes des index de journaux"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic"
+msgstr "Liste automatique des Index dans le module PFL"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj.validationFailed"
+msgstr ""
+"L'indexation du journal dans DOAJ n'a pas pu être vérifiée. Assurez-vous que "
+"votre revue y est bien indexée et que le bon ISSN figure dans la "
+"configuration d'OJS."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline.validationFailed"
+msgstr ""
+"L'indexation du journal dans MEDLINE n'a pas pu être vérifiée. Assurez-vous "
+"que votre revue y est bien indexée et que le bon ISSN figure dans la "
+"configuration d'OJS."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual"
+msgstr "Liste manuelle des Index dans le module PFL"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.urlInvalid"
+msgstr ""
+"L'adresse URL de Scopus n'est pas correcte. Veuillez lire les instructions "
+"et réessayer."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step1"
+msgstr ""
+"Allez sur la page <a href=\"https://www.scopus.com/sources."
+"uri?zone=TopNavBar&origin=\" target=\"_new\">Sources</a> de Scopus et "
+"sélectionnez \"Title\" dans le menu déroulant."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step2"
+msgstr ""
+"Entrez le titre du journal. S'il est indexé, il apparaît en tant que \"Result"
+".\""
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step3"
+msgstr ""
+"Cliquez sur le titre, puis collez l'adresse URL de la page qui s'ouvre ici :"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos"
+msgstr ""
+"<strong>Web of Science</strong> (<a target=\"_new\" href=\"https://en."
+"wikipedia.org/wiki/Web_of_Science\">Info</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.urlInvalid"
+msgstr ""
+"L'adresse URL de Web of Science n'est pas correcte. Veuillez lire les "
+"instructions et réessayer."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step1"
+msgstr ""
+"Allez sur la page <a href=\"https://mjl.clarivate.com/search-results\" "
+"target=\"_new\">Web of Science</a> et saisissez le nom du journal dans la "
+"boîte de recherche."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step3"
+msgstr "Copiez l'adresse URL de \"Share This Journal\" et collez-la ici :"
+
+msgid "plugins.generic.pfl.academicSociety"
+msgstr "Société savante"
+
+msgid "plugins.generic.pfl.academicSociety.fieldLabel"
+msgstr "Nom ou acronyme de la Société"
+
+msgid "plugins.generic.pfl.percentage"
+msgstr "{$num}%"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.description"
+msgstr ""
+"Sous la rubrique \"Indexé dans\" de l'étiquette de valeur éditorial ("
+"Publication Facts Label - PFL) peuvent être affichés jusqu'à quatre index "
+"dans lesquels le journal apparaît. Quatre des index suivants offrent une "
+"large couverture, tandis que MEDLINE couvre les sciences médicales et que "
+"Latindex couvre l'Amérique latine (plus d'info ci-dessous). Les index "
+"rendent publique leur liste de journaux (même lorsque les autres données "
+"sont privées). Deux des index peuvent être automatiquement vérifiés, mais "
+"les quatre autres nécessitent que vous recherchiez manuellement le journal "
+"et que, si existant, vous l'ajoutiez au module PFL."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex.validationFailed"
+msgstr ""
+"L'indexation du journal dans Latindex n'a pas pu être vérifiée. Assurez-vous "
+"que votre revue y est bien indexée et que le bon ISSN figure dans la "
+"configuration d'OJS."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl.invalid"
+msgstr ""
+"L'adresse URL de la société savante n'est pas valide. Assurez-vous que "
+"l'adresse est complète et correctement formatée."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step4"
+msgstr ""
+"Si le journal n'est pas indexé, voir les <a target=\"_new\" href=\"https"
+"://www.elsevier.com/solutions/scopus/how-scopus-works/content/content-policy-"
+"and-selection\">démarches</a> pour son inclusion."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step2"
+msgstr "Si indexé dans Web of Science, il va apparaître en tant que \"Result.\""
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing.description"
+msgstr ""
+"Le module Données de Fonds n'est pas activé. Pour que les informations sur "
+"les financements puissent être présentées dans l'étiquette de valeur "
+"éditoriale, ce module doit être installé et activé, et les données "
+"pertinentes sur les financements saisies dans chaque soumission. Cherchez-le "
+"dans la galerie de modules."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step4"
+msgstr ""
+"Si le journal n'est pas indexé, voir les <a target=\"_new\" href=\"https"
+"://clarivate.com/products/scientific-and-academic-research/"
+"research-discovery-and-workflow-solutions/webofscience-platform/"
+"web-of-science-core-collection/editorial-selection-process/\">démarches</a> "
+"pour son inclusion."
