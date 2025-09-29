@@ -462,7 +462,7 @@ class PflPlugin extends GenericPlugin {
         $pflPath = "{$request->getBaseUrl()}/{$this->getPluginPath()}/pfl/";
 
         $templateMgr->addJavaScript(
-            'FrontendUiExample',
+            'PublicationFactsLabel',
             "{$pflPath}js/pfl.js",
             [
                 'inline' => false,
