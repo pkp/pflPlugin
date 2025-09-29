@@ -1,16 +1,4 @@
-# pflPlugin
-Publication Facts Label plugin for Open Journal Systems
+# Publication Facts Label plugin for Open Journal Systems
+This plugin integrates the [Publication Facts Label](https://github.com/pkp/pfl) into Open Journal Systems.
 
-## Class Data
-
-The Publication Facts Label presents data about other journals in its class. These are taken from a JSON file hosted at https://pkp.sfu.ca/ojs/pflStatistics.json. It should include the following data:
-
-| Key                               | Example | Description                                                          |
-| --------------------------------- | ------- | -------------------------------------------------------------------- |
-| pflNumAcceptedClass               | 13      | Percentage of articles accepted by a typical journal                 |
-| pflNumIndexesClass                | 3.4     | Average number of indexes a typical journal is accepted into         |
-| pflReviewerCountClass             | 2.4     | Average number of peer reviewers for an article in a typical journal |
-| pflCompetingInterestsPercentClass | 11      | Percentage of articles that list competing interests                 |
-| pflDataAvailabilityPercentClass   | 16      | Percentage of articles that list data availability                   |
-| pflNumHaveFundersClass            | 32      | Percentage of articles that list funders                             |
-
+It is available for installation into OJS via the Plugin Gallery; it is not recommended to download and install the plugin directly from Github.
