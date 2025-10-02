@@ -1,2 +1,94 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-10-03 20:51+0000\n"
+"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
+"Language-Team: Basque <http://translate.pkp.sfu.ca/projects/"
+"publication-facts-label/pflPlugin/eu/>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "plugins.generic.pfl.metric"
+msgstr "Metrikoa"
+
+msgid "plugins.generic.pflPlugin.settings.journal"
+msgstr "Aldizkariaren informazioa"
+
+msgid "plugins.generic.pflPlugin.settings.excludePrior"
+msgstr "Baztertu dataren arabera"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart"
+msgstr "Hasiera-data"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.invalid"
+msgstr "Mesedez, egiaztatu zehaztutako hasiera-data baliozkoa dela."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl"
+msgstr "URLa"
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing"
+msgstr "Funding plugina ez dago"
+
+msgid "plugins.generic.pflPlugin.settings.indexes"
+msgstr "Aldizkariaren indize-zerrendak"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj"
+msgstr "Sarbide irekiko aldizkarien direktorioa"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex"
+msgstr "Latindex"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus"
+msgstr ""
+"<strong>Scopus</strong> (<a target=\"_new\" href=\"https://en.wikipedia.org/"
+"wiki/Scopus\">Info</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos"
+msgstr ""
+"<strong>Web of Science</strong> (<a target=\"_new\" href=\"https://en."
+"wikipedia.org/wiki/Web_of_Science\">Info</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.urlInvalid"
+msgstr ""
+"Sartu duzun Web of Science URLa ez da zuzena. Mesedez, irakurri argibideak "
+"eta saiatu berriro."
+
+msgid "plugins.generic.pfl.percentage"
+msgstr "{$num}%"
+
+msgid "plugins.generic.pfl.academicSociety.fieldLabel"
+msgstr "Elkartearen izena edo akronimoa"
+
+msgid "plugins.generic.pfl.academicSociety"
+msgstr "Elkartea"
+
+msgid "plugins.generic.pfl.displayName"
+msgstr "Publication Facts Label plugina"
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl.invalid"
+msgstr ""
+"Elkarte akademikoaren URLa ez da baliozkoa. Ziurtatu URLa osorik dagoela eta "
+"formatu egokia duela."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.scholar"
+msgstr "Google Scholar"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline"
+msgstr "MEDLINE"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual"
+msgstr "Indizeen eskuzko zerrenda PFL-n"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.urlInvalid"
+msgstr ""
+"Sartu duzun Scopus URLa ez da zuzena. Mesedez, irakurri argibideak eta "
+"saiatu berriro."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step1"
+msgstr ""
+"Joan Scopus-en <a href=\"https://www.scopus.com/sources."
+"uri?zone=TopNavBar&origin=\" target=\"_new\">Iturriak</a> orrira, eta "
+"hautatu \"Izenburua\" goitibeherako menuan."
