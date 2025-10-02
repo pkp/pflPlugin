@@ -1,0 +1,177 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-09-07 04:30+0000\n"
+"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/"
+"publication-facts-label/pflPlugin/tr/>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "plugins.generic.pfl.metric"
+msgstr "Ölçüm"
+
+msgid "plugins.generic.pflPlugin.settings.journal"
+msgstr "Dergi Bilgileri"
+
+msgid "plugins.generic.pflPlugin.settings.excludePrior"
+msgstr "Tarihe Göre Hariç Tut"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart"
+msgstr "Başlangıç Tarihi"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.invalid"
+msgstr ""
+"Lütfen belirtilen başlangıç tarihinin geçerli olduğunu tekrar kontrol edin."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl"
+msgstr "URL"
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing"
+msgstr "Finansman Eklentisi Mevcut Değil"
+
+msgid "plugins.generic.pflPlugin.settings.indexes"
+msgstr "Dergi Dizin Listesi"
+
+msgid "plugins.generic.pfl.displayName"
+msgstr "Yayın Bilgileri Etiketi eklentisi"
+
+msgid "plugins.generic.pfl.description"
+msgstr ""
+"Bu eklenti, okuyuculara derginin güvenilirlik özelliklerini göstermek için "
+"istatistiklerin yer aldığı bir kenar bloğu ekler."
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.description"
+msgstr ""
+"Eğer derginiz belirli bir tarihten önce OJS’nin editoryal iş akışını "
+"kullanmadıysa, istatistiklerin toplanmasında o tarihten önceki gönderileri "
+"hariç tutmak için buraya tarih girin. Yayın Bilgileri Etiketi, bu tarihten "
+"önceki gönderilerde gösterilmeyecektir."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl.invalid"
+msgstr ""
+"Akademik kuruluşun URL'si geçerli değil. Lütfen URL'nin eksiksiz ve doğru "
+"biçimlendirilmiş olduğundan emin olun."
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing.description"
+msgstr ""
+"Finansman eklentisi yüklü ve etkin değil. Yayın Bilgileri Etiketi tarafından "
+"finansman verilerinin gösterilebilmesi için bu eklentinin kurulması, "
+"etkinleştirilmesi ve her gönderi için ilgili verilerin sağlanması gerekir. "
+"Bu eklentiyi Eklenti Galerisi’nde kontrol edin."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.description"
+msgstr ""
+"Yayın Bilgileri Etiketi (PFL) içindeki “Dizinler” başlığı altında, "
+"okuyuculara derginin yer aldığı en fazla dört dizin gösterilecektir. Burada "
+"yer alan dört dizin geniş kapsam sunar. MEDLINE sağlık bilimlerini, Latindex "
+"ise Latin Amerika’yı kapsar (detaylar için aşağıya bakınız). Dizinler, "
+"derginizin listelenmesini kamuya açık olarak gösterebilir (dizin normalde "
+"kapalı olsa bile). İki dizin otomatik olarak kontrol edilebilirken, diğer "
+"dört dizin için dergi, ilgili dizin içinde aranarak, bulunursa PFL’ye "
+"eklemeniz gerekir."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic"
+msgstr "PFL’de Dizinlerin Otomatik Listelenmesi"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj"
+msgstr "Directory of Open Access Journals (DOAJ)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj.validationFailed"
+msgstr ""
+"Derginin DOAJ’da dizinlenme durumu doğrulanamadı. Derginizin "
+"dizinlendiğinden ve Dergi Ayarları’nda ISSN bilgisinin doğru "
+"yapılandırıldığından emin olun."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.scholar"
+msgstr "Google Akademik"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline"
+msgstr "MEDLINE"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex"
+msgstr "Latindex"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex.validationFailed"
+msgstr ""
+"Derginin Latindex’de dizinlenme durumu doğrulanamadı. Derginizin "
+"dizinlendiğinden ve Dergi Ayarları’nda ISSN bilgisinin doğru "
+"yapılandırıldığından emin olun."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual"
+msgstr "PFL’de İndekslerin Manuel Listelenmesi"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.urlInvalid"
+msgstr ""
+"Girdiğiniz Scopus URL’si doğru değil. Lütfen talimatları okuyun ve tekrar "
+"deneyin."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step2"
+msgstr "Dergi adını girin, eğer dizinleniyorsa “Sonuç” olarak görünecektir."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos"
+msgstr ""
+"<strong>Web of Science</strong> (<a target=\"_new\" href=\"https://en."
+"wikipedia.org/wiki/Web_of_Science\">Bilgi</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.urlInvalid"
+msgstr ""
+"Girdiğiniz Web of Science URL’si doğru değil. Lütfen talimatları okuyun ve "
+"tekrar deneyin."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step2"
+msgstr "Eğer Web of Science’de dizinleniyorsa “Sonuç” olarak görünecektir."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step4"
+msgstr ""
+"Dergi dizinlenmiyorsa, dahil edilme süreci için <a target=\"_new\" href="
+"\"https://clarivate.com/products/scientific-and-academic-research/"
+"research-discovery-and-workflow-solutions/webofscience-platform/"
+"web-of-science-core-collection/editorial-selection-process/\">buradaki "
+"işlemleri</a> inceleyin."
+
+msgid "plugins.generic.pfl.percentage"
+msgstr "%{$num}"
+
+msgid "plugins.generic.pfl.academicSociety"
+msgstr "Akademik Kuruluş"
+
+msgid "plugins.generic.pfl.academicSociety.fieldLabel"
+msgstr "Akademik kuruluş adı veya kısaltması"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline.validationFailed"
+msgstr ""
+"Derginin MEDLINE’da dizinlenme durumu doğrulanamadı. Derginizin "
+"dizinlendiğinden ve Dergi Ayarları’nda ISSN bilgisinin doğru "
+"yapılandırıldığından emin olun."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus"
+msgstr ""
+"<strong>Scopus</strong> (<a target=\"_new\" href=\"https://en.wikipedia.org/"
+"wiki/Scopus\">Bilgi</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step1"
+msgstr ""
+"Scopus’un <a href=\"https://www.scopus.com/sources.uri?zone=TopNavBar&origin="
+"\" target=\"_new\">Sources</a> sayfasına gidin ve açılır menüden \"Title\" "
+"seçeneğini işaretleyin."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step3"
+msgstr "Başlığa tıklayın ve açılan sayfanın URL’sini buraya yapıştırın:"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step3"
+msgstr "“Share This Journal” ile URL’yi kopyalayın ve buraya yapıştırın:"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step1"
+msgstr ""
+"<a href=\"https://mjl.clarivate.com/search-results\" target=\"_new\">Web of "
+"Science</a> sitesine gidin ve arama kutusuna dergi adını girin."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step4"
+msgstr ""
+"Dergi dizinlenmiyorsa, dahil edilme süreci için <a target=\"_new\" href="
+"\"https://www.elsevier.com/solutions/scopus/how-scopus-works/content/content-"
+"policy-and-selection\">buradaki işlemleri</a> inceleyin."
