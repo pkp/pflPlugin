@@ -52,6 +52,22 @@ class PflPlugin extends GenericPlugin {
         $localeMap = [
             'en_US' => 'en',
             'es_ES' => 'es',
+            'bg_BG' => 'bg',
+            'da_DK' => 'da',
+            'id_ID' => 'id',
+            'mk_MK' => 'mk',
+            'pt_BR' => 'pt',
+            'pt_PT' => 'pt',
+            'fr_CA' => 'fr',
+            'fr_FR' => 'fr',
+            'sl_SI' => 'sl',
+            'uk_UA' => 'uk',
+            'cs_CZ' => 'cs',
+            'fi_FI' => 'fi',
+            'hu_HU' => 'hu',
+            'it_IT' => 'it',
+            'sk_SK' => 'sk',
+            'tr_TR' => 'tr',
         ];
         $locale = AppLocale::getLocale();
         $locale = $localeMap[$locale] ?? $locale;
