@@ -1,0 +1,184 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-09-25 22:51+0000\n"
+"Last-Translator: Attila Kovács <buildingopensource@protonmail.com>\n"
+"Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/"
+"publication-facts-label/pflPlugin/hu/>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "plugins.generic.pfl.displayName"
+msgstr "Publikáció-adatlap plugin"
+
+msgid "plugins.generic.pfl.metric"
+msgstr "Mérőszám"
+
+msgid "plugins.generic.pflPlugin.settings.journal"
+msgstr "Folyóirat-információ"
+
+msgid "plugins.generic.pflPlugin.settings.excludePrior"
+msgstr "Kizárás dátum alapján"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart"
+msgstr "Kezdő dátum"
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl"
+msgstr "URL"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.invalid"
+msgstr "Kérem ellenőrizze, hogy a megjelölt kezdő dátum érvényes."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl.invalid"
+msgstr ""
+"Az tudományos szervezet URL-je érvénytelen. Kérem ellenőrizze, hogy az URL "
+"teljes és megfelelően formázott."
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing"
+msgstr "A Funding plugin nincs jelen"
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing.description"
+msgstr ""
+"A Funding plugin nincs jelen vagy nincs engedélyezve. Hogy a finanszírozási "
+"adatok megjelenhessenek a Publikáció-adatlapon, a Funding pluginnak "
+"telepítésre és engedélyezésre kell kerülnie, valamint szükséges, hogy a "
+"releváns adatok minden beküldés esetében megadásra kerüljenek. Keresse a "
+"Funding plugint a plugin galériában."
+
+msgid "plugins.generic.pflPlugin.settings.indexes"
+msgstr "A folyóiratot indexeli"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.scholar"
+msgstr "Google Tudós"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline"
+msgstr "MEDLINE"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline.validationFailed"
+msgstr ""
+"A folyóirat MEDLINE indexeltségének ellenőrzése meghiúsult. Győződjön meg "
+"róla, hogy a folyóirat indexelt, és a megfelelő ISSN beállításra került a "
+"Folyóirat beállításokban."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex"
+msgstr "Latindex"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus"
+msgstr ""
+"<strong>Scopus</strong> (<a target=\"_new\" href=\"https://en.wikipedia.org/"
+"wiki/Scopus\">Információ</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.urlInvalid"
+msgstr ""
+"A bevitt Scopus URL helytelen. Kérem olvassa el az utasításokat és próbálja "
+"újra."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic"
+msgstr "Indexek automatikus megjelenítése a Publikáció-adatlapon"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual"
+msgstr "Indexek manuális megjelenítése a Publikáció-adatlapon"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step2"
+msgstr ""
+"Írja be a folyóirat címét. Amennyiben indexelt, megjelenik majd mint találat."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step3"
+msgstr "Kattintson a címre, és illessze be a megnyíló oldal URL-jét ide:"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos"
+msgstr ""
+"<strong>Web of Science</strong> (<a target=\"_new\" href=\"https://en."
+"wikipedia.org/wiki/Web_of_Science\">Információ</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.urlInvalid"
+msgstr ""
+"A bevitt Web of Science URL helytelen. Kérem olvassa el az utasításokat és "
+"próbálja újra."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step1"
+msgstr ""
+"Látogassa meg a <a href=\"https://mjl.clarivate.com/search-results\" target="
+"\"_new\">Web of Science</a> oldalát és írja be a folyóirat címét a "
+"keresőmezőbe."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step2"
+msgstr ""
+"Ha a folyóirat indexelt a Web of Science-ben, akkor megjelenik találatként."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step3"
+msgstr ""
+"A \"Share This Journal\" funkciót használva másolja az URL-t, majd illessze "
+"be ide:"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step4"
+msgstr ""
+"Ha a folyóirat nem indexelt, tájékozódjon az <a target=\"_new\" href=\"https"
+"://clarivate.com/products/scientific-and-academic-research/"
+"research-discovery-and-workflow-solutions/webofscience-platform/"
+"web-of-science-core-collection/editorial-selection-process/\">indexelési "
+"folyamatról</a>."
+
+msgid "plugins.generic.pfl.percentage"
+msgstr "{$num}%"
+
+msgid "plugins.generic.pfl.academicSociety"
+msgstr "Tudományos szervezet"
+
+msgid "plugins.generic.pfl.academicSociety.fieldLabel"
+msgstr "A tudományos szervezet neve vagy nevének rövidítése"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex.validationFailed"
+msgstr ""
+"A folyóirat Latindex indexeltségének ellenőrzése meghiúsult. Győződjön meg "
+"róla, hogy a folyóirat indexelt, és a megfelelő ISSN beállításra került a "
+"Folyóirat beállításokban."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj"
+msgstr "Directory of Open Access Journals (DOAJ)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step1"
+msgstr ""
+"Látogassa meg a Scopus <a href=\"https://www.scopus.com/sources."
+"uri?zone=TopNavBar&origin=\" target=\"_new\">Sources</a> oldalát és válassza "
+"ki a \"Title\" elemet a legördülő menüből."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step4"
+msgstr ""
+"Ha a folyóirat nem indexelt, tájékozódjon az <a target=\"_new\" href=\"https"
+"://www.elsevier.com/solutions/scopus/how-scopus-works/content/content-policy-"
+"and-selection\">indexelési folyamatról</a>."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj.validationFailed"
+msgstr ""
+"A folyóirat DOAJ indexeltségének ellenőrzése meghiúsult. Győződjön meg róla, "
+"hogy a folyóirat indexelt, és a megfelelő ISSN beállításra került a "
+"Folyóirat beállításokban."
+
+msgid "plugins.generic.pfl.description"
+msgstr ""
+"Ez a plugin egy oldalsávelemet ad a felülethez, ami statisztikákkal teszi "
+"lehetővé a folyóirat publikálási feddhetetlenségének felmérését az olvasók "
+"számára."
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.description"
+msgstr ""
+"Ha a folyóirat nem használta az OJS szerkesztői munkafolyamatát egy adott "
+"dátum előtt, jelölje meg itt annak érdekében, hogy a korábbi beküldések "
+"kizárásra kerülhessenek a statisztikákból. A Publikáció-adatlap nem fog "
+"megjelenni a dátum előtti beküldések esetében."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.description"
+msgstr ""
+"Az \"Indexelt\" címsor alatt a Publikáció-adatlapon az olvasók számára "
+"látható lesz legfeljebb négy index amelyben a folyóirat megjelenik. Az "
+"alábbi indexek közül négy széles gyűjtőkörrel rendelkezik, míg a MEDLINE az "
+"egészségtudományokat, a Latindex pedig Latin-Amerikát fedi le (lásd az "
+"alábbi információkat). Az indexek lehetővé teszik a folyóiratlistájuk "
+"nyilvános megjelenítését (még akkor is, ha az index egyébként zárt "
+"hozzáférésű). Míg két index automatikusan ellenőrizhető, a másik négyhez meg "
+"kell keresni a folyóiratot az indexben, és amennyiben fellelhető, hozzáadni "
+"a Publikáció-adatlaphoz."

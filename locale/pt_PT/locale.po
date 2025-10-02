@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-07-14 08:24+0000\n"
-"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
-"Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/plugins/"
-"pflPlugin/pt/>\n"
+"PO-Revision-Date: 2025-09-07 04:30+0000\n"
+"Last-Translator: Mickael Gomes da Silva <mickael.silva@uc.pt>\n"
+"Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/"
+"publication-facts-label/pflPlugin/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,3 +13,20 @@ msgstr ""
 
 msgid "plugins.generic.pfl.displayName"
 msgstr "Nome do plugin Factos de Publicação"
+
+msgid "plugins.generic.pfl.description"
+msgstr ""
+"Este plugin adiciona um bloco na barra lateral com estatísticas para indicar "
+"aos leitores as características de integridade da revista."
+
+msgid "plugins.generic.pfl.metric"
+msgstr "Métrica"
+
+msgid "plugins.generic.pflPlugin.settings.journal"
+msgstr "Informações da revista"
+
+msgid "plugins.generic.pflPlugin.settings.excludePrior"
+msgstr "Excluir por data"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart"
+msgstr "Data de início"

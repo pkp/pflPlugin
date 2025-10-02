@@ -1,0 +1,177 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-09-09 07:21+0000\n"
+"Last-Translator: Nina Trubanova <nina.trubanova@ucdconnect.ie>\n"
+"Language-Team: Slovak <http://translate.pkp.sfu.ca/projects/"
+"publication-facts-label/pflPlugin/sk/>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "plugins.generic.pfl.metric"
+msgstr "Metrika"
+
+msgid "plugins.generic.pflPlugin.settings.journal"
+msgstr "Informácie o časopise"
+
+msgid "plugins.generic.pflPlugin.settings.excludePrior"
+msgstr "Vylúčiť podľa dátumu"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart"
+msgstr "Dátum spustenia"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.invalid"
+msgstr "Skontrolujte prosím, či je zadaný dátum spustenia platný."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl"
+msgstr "URL"
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl.invalid"
+msgstr ""
+"Adresa URL akademickej spoločnosti nie je platná. Uistite sa, že adresa URL "
+"je úplná a správne naformátovaná."
+
+msgid "plugins.generic.pflPlugin.settings.indexes"
+msgstr "Indexácia časopisu"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic"
+msgstr "Automatizovaný výpis indexov v Štítku s informáciami o publikácii"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj"
+msgstr "Adresár Open Access časopisov"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj.validationFailed"
+msgstr ""
+"Indexáciu časopisu v DOAJ nebolo možné overiť. Skontrolujte, či je váš "
+"časopis indexovaný a či je v Nastaveniach časopisu nakonfigurované príslušné "
+"ISSN."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.scholar"
+msgstr "Google Scholar"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline"
+msgstr "MEDLINE"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline.validationFailed"
+msgstr ""
+"Indexovanie časopisu v databáze MEDLINE nebolo možné overiť. Skontrolujte, "
+"či je váš časopis indexovaný a či je v Nastaveniach časopisu nakonfigurované "
+"príslušné ISSN."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex"
+msgstr "Latindex"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex.validationFailed"
+msgstr ""
+"Indexovanie časopisu v Latindexe nebolo možné overiť. Skontrolujte, či je "
+"váš časopis indexovaný a či je v Nastaveniach časopisu nakonfigurované "
+"príslušné ISSN."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual"
+msgstr "Manuálny výpis indexov v Štítku s informáciami o publikácii"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.urlInvalid"
+msgstr ""
+"URL adresa Scopus, ktorú ste zadali, nie je správna. Prečítajte si prosím "
+"pokyny a skúste to znova."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step2"
+msgstr "Zadajte názov časopisu a ak je indexovaný, zobrazí sa ako „Result“."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step3"
+msgstr "Kliknite na názov a vložte sem výslednú adresu URL stránky:"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.urlInvalid"
+msgstr ""
+"URL adresa Web of Science, ktorú ste zadali, nie je správna. Prečítajte si "
+"prosím pokyny a skúste to znova."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step1"
+msgstr ""
+"Prejdite na stránku <a href=\"https://mjl.clarivate.com/search-results\" "
+"target=\"_new\">Web of Science</a> a do vyhľadávacieho poľa zadajte názov "
+"časopisu."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step2"
+msgstr "Ak je indexovaný v databáze Web of Science, zobrazí sa ako „Result“."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step3"
+msgstr "Skopírujte adresu URL pomocou „Share This Journal“ a vložte ju sem:"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step4"
+msgstr ""
+"If the journal is not indexed, here is the <a target=\"_new\" href=\"https"
+"://www.elsevier.com/solutions/scopus/how-scopus-works/content/content-policy-"
+"and-selection\">postup</a> na jeho zaradenie."
+
+msgid "plugins.generic.pfl.percentage"
+msgstr "{$num} %"
+
+msgid "plugins.generic.pfl.academicSociety"
+msgstr "Spoločnosť"
+
+msgid "plugins.generic.pfl.academicSociety.fieldLabel"
+msgstr "Názov alebo skratka spoločnosti"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus"
+msgstr ""
+"<strong>Scopus</strong> (<a target=\"_new\" href=\"https://sk.wikipedia.org/"
+"wiki/Scopus\">Viac informácií</a>)"
+
+msgid "plugins.generic.pfl.displayName"
+msgstr "Plugin pre Štítok s informáciami o publikácii"
+
+msgid "plugins.generic.pfl.description"
+msgstr ""
+"Tento plugin pridáva do bočného panela blok so štatistikami, ktorý čitateľom "
+"ukazuje charakteristiky integrity časopisu."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos"
+msgstr ""
+"<strong>Web of Science</strong> (<a target=\"_new\" href=\"https://sk."
+"wikipedia.org/wiki/Web_of_Science\">Viac informácií</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step1"
+msgstr ""
+"Prejdite na stránku <a href=\"https://www.scopus.com/sources."
+"uri?zone=TopNavBar&origin=\" target=\"_new\">Sources</a> služby Scopus a z "
+"rozbaľovacieho menu vyberte položku „Title“."
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.description"
+msgstr ""
+"Ak váš časopis nevyužíval redakčný pracovný postup OJS pred určitým dátumom, "
+"uveďte to tu, aby sa predchádzajúce príspevky vylúčili zo zberu štatistík. "
+"Štítok s informáciami o publikácii sa nebude zobrazovať pri príspevkoch pred "
+"týmto dátumom."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step4"
+msgstr ""
+"Ak časopis nie je indexovaný, tu je <a target=\"_new\" href=\"https"
+"://clarivate.com/products/scientific-and-academic-research/"
+"research-discovery-and-workflow-solutions/webofscience-platform/"
+"web-of-science-core-collection/editorial-selection-process/\">postup</a> na "
+"jeho zaradenie."
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing"
+msgstr "Nie je prítomný plugin Financovanie"
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing.description"
+msgstr ""
+"Plugin Financovanie nie je prítomný a povolený. Aby sa údaje o financovaní "
+"mohli prezentovať prostredníctvom Štítka s informáciami o publikácii, musí "
+"byť tento plugin nainštalovaný a povolený a musí obsahovať príslušné údaje "
+"pre každé podanie. Tento plugin nájdete v galérii pluginov."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.description"
+msgstr ""
+"Pod nadpisom „Indexed“ (Indexovaný) v Štítku s informáciami o publikácii sa "
+"čitateľom zobrazia až štyri indexy, v ktorých sa časopis nachádza. Štyri z "
+"nižšie uvedených indexov ponúkajú široké pokrytie, zatiaľ čo MEDLINE pokrýva "
+"zdravotné vedy a Latindex pokrýva Latinskú Ameriku (pozri informácie nižšie)"
+". Indexy umožňujú verejné zobrazenie zoznamu časopisov (aj keď je index inak "
+"uzavretý). Zatiaľ čo dva z indexov možno kontrolovať automaticky, ostatné "
+"štyri vyžadujú, aby ste časopis vyhľadali v indexe a v prípade jeho nájdenia "
+"ho pridali do Štítka s informáciami ."
