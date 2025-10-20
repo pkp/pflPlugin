@@ -13,8 +13,8 @@
 <version>
 	<application>pflPlugin</application>
 	<type>plugins.generic</type>
-	<release>1.1.0.7</release>
-	<date>2025-06-26</date>
+	<release>1.1.1.0</release>
+	<date>2025-10-20</date>
 	<lazy-load>1</lazy-load>
 	<class>PflPlugin</class>
 </version>
