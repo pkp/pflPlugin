@@ -1,2 +1,177 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-10-09 07:51+0000\n"
+"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
+"Language-Team: Basque <http://translate.pkp.sfu.ca/projects/"
+"publication-facts-label/pflPlugin/eu/>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "plugins.generic.pfl.metric"
+msgstr "Metrikoa"
+
+msgid "plugins.generic.pflPlugin.settings.journal"
+msgstr "Aldizkariaren informazioa"
+
+msgid "plugins.generic.pflPlugin.settings.excludePrior"
+msgstr "Baztertu dataren arabera"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart"
+msgstr "Hasiera-data"
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.invalid"
+msgstr "Mesedez, egiaztatu zehaztutako hasiera-data baliozkoa dela."
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl"
+msgstr "URLa"
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing"
+msgstr "Funding plugina ez dago"
+
+msgid "plugins.generic.pflPlugin.settings.indexes"
+msgstr "Aldizkariaren indize-zerrendak"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj"
+msgstr "Sarbide irekiko aldizkarien direktorioa"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex"
+msgstr "Latindex"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus"
+msgstr ""
+"<strong>Scopus</strong> (<a target=\"_new\" href=\"https://en.wikipedia.org/"
+"wiki/Scopus\">Info</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos"
+msgstr ""
+"<strong>Web of Science</strong> (<a target=\"_new\" href=\"https://en."
+"wikipedia.org/wiki/Web_of_Science\">Info</a>)"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.urlInvalid"
+msgstr ""
+"Sartu duzun Web of Science URLa ez da zuzena. Mesedez, irakurri argibideak "
+"eta saiatu berriro."
+
+msgid "plugins.generic.pfl.percentage"
+msgstr "{$num}%"
+
+msgid "plugins.generic.pfl.academicSociety.fieldLabel"
+msgstr "Elkartearen izena edo akronimoa"
+
+msgid "plugins.generic.pfl.academicSociety"
+msgstr "Elkartea"
+
+msgid "plugins.generic.pfl.displayName"
+msgstr "Publication Facts Label plugina"
+
+msgid "plugins.generic.pflPlugin.settings.academicSocietyUrl.invalid"
+msgstr ""
+"Elkarte akademikoaren URLa ez da baliozkoa. Ziurtatu URLa osorik dagoela eta "
+"formatu egokia duela."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.scholar"
+msgstr "Google Scholar"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline"
+msgstr "MEDLINE"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual"
+msgstr "Indizeen eskuzko zerrenda PFL-n"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.urlInvalid"
+msgstr ""
+"Sartu duzun Scopus URLa ez da zuzena. Mesedez, irakurri argibideak eta "
+"saiatu berriro."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step1"
+msgstr ""
+"Joan Scopus-en <a href=\"https://www.scopus.com/sources."
+"uri?zone=TopNavBar&origin=\" target=\"_new\">Iturriak</a> orrira, eta "
+"hautatu \"Izenburua\" goitibeherako menuan."
+
+msgid "plugins.generic.pfl.description"
+msgstr ""
+"Plugin honek estatistikak dituen alboko barrako bloke bat gehitzen du, "
+"aldizkariaren integritate-ezaugarriak irakurleei adierazteko."
+
+msgid "plugins.generic.pflPlugin.settings.dateStart.description"
+msgstr ""
+"Zure aldizkariak ez badu OJSren lan-fluxu editoriala erabili data jakin bat "
+"baino lehen, zehaztu ezazu hemen aurreko bidalketak estatistika-bildumatik "
+"kanpo uzteko. Publication Facts Label ez da erakutsiko data hori baino "
+"lehenagoko bidalketetan."
+
+msgid "plugins.generic.pflPlugin.fundingPluginMissing.description"
+msgstr ""
+"Finantzaketa-plugina ez dago presente eta gaituta. Publication Facts Label-"
+"ek finantzaketa-datuak aurkeztu ahal izateko, plugin hau instalatuta eta "
+"gaituta egon beharko da, eta bidalketa bakoitzerako datu esanguratsuak eman "
+"beharko dira. Egiaztatu plugin galeria plugin hau aurkitzeko."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic"
+msgstr "Indizeen zerrenda automatizatua PFLn"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.doaj.validationFailed"
+msgstr ""
+"Ezin izan da egiaztatu aldizkariaren indexazioa DOAJ-en. Ziurtatu zure "
+"aldizkaria indexatuta dagoela eta Aldizkariaren ezarpenetan ISSN egokia "
+"konfiguratuta dagoela."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.latindex.validationFailed"
+msgstr ""
+"Ezin izan da egiaztatu aldizkariaren indexazioa Latindex-en. Ziurtatu zure "
+"aldizkaria indexatuta dagoela eta ISSN egokia konfiguratuta dagoela "
+"aldizkariaren ezarpenetan."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step2"
+msgstr ""
+"Sartu aldizkariaren izenburua eta, indexatuta badago, \"Emaitza\" gisa "
+"agertuko da."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step3"
+msgstr "Egin klik izenburuan eta itsatsi hemen emaitzaren orriaren URLa:"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.scopus.step4"
+msgstr ""
+"Aldizkaria indexatuta ez badago, hona hemen sartzeko <a target=\"_new\" href="
+"\"https://www.elsevier.com/solutions/scopus/how-scopus-works/content/content-"
+"policy-and-selection\">prozesua</a>."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step1"
+msgstr ""
+"Joan <a href=\"https://mjl.clarivate.com/search-results\" target=\"_new\""
+">Web of Science</a>-ra eta sartu aldizkariaren izena bilaketa-koadroan."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step2"
+msgstr "Web of Science-n indexatuta badago, \"Emaitza\" gisa agertuko da."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step3"
+msgstr "Kopiatu URLa \"Share This Journal\" aukeraren bidez eta itsatsi hemen:"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.manual.wos.step4"
+msgstr ""
+"Aldizkaria indexatuta ez badago, hona hemen sartzeko <a target=\"_new\" href="
+"\"https://clarivate.com/products/scientific-and-academic-research/"
+"research-discovery-and-workflow-solutions/webofscience-platform/"
+"web-of-science-core-collection/editorial-selection-process/\">prozesua</a>."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.description"
+msgstr ""
+"Publication Facts Label-en (PFL) \"Indexatuta\" izenburupean, aldizkaria "
+"agertzen den gehienez lau indize aurkeztuko zaizkie irakurleei. Beheko lau "
+"indizeek estaldura zabala eskaintzen dute; MEDLINEk, berriz, osasun-"
+"zientziak hartzen ditu, eta Latindex-ek Latinoamerika (ikus beheko "
+"Informazioa). Indizeek beren aldizkari-zerrenda publikoki bistaratzeko "
+"aukera ematen dute (baita indizea itxita dagoenean ere). Bi indize "
+"automatikoki egiaztatu daitezkeen arren, beste laurek aldizkaria indizean "
+"bilatzea eta, aurkituz gero, PFLan gehitzea eskatzen dute."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.automatic.medline.validationFailed"
+msgstr ""
+"Ezin izan da egiaztatu aldizkariaren indexazioa MEDLINEn. Ziurtatu zure "
+"aldizkaria indexatuta dagoela eta ISSN egokia konfiguratuta dagoela "
+"aldizkariaren ezarpenetan."
