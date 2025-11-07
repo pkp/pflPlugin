@@ -83,7 +83,7 @@ class PflSettingsForm extends Form {
                 $body = html_entity_decode(strip_tags($response->getBody()));
 
                 $previousErrorSetting = libxml_use_internal_errors(true);
-                $xml = new SimpleXMLElement($body);
+                $xml = new \SimpleXMLElement($body);
                 $errors = libxml_get_errors();
                 libxml_use_internal_errors($previousErrorSetting);
                 return empty($errors) && !empty($xml->xpath('/NCBICatalogRecord/NLMCatalogRecord/ISSN'));
