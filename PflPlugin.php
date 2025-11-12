@@ -223,7 +223,7 @@ class PflPlugin extends GenericPlugin {
         }
 
         if ($this->getSetting($journal->getId(), 'includeMedline')) {
-            $pflIndexList["https://www.ncbi.nlm.nih.gov/nlmcatalog/?term=${onlineIssn}[ISSN]"] = ['name' => 'M', 'description' => 'Medline'];
+            $pflIndexList["https://www.ncbi.nlm.nih.gov/nlmcatalog/?term={$onlineIssn}[ISSN]"] = ['name' => 'M', 'description' => 'Medline'];
         }
 
         if ($this->getSetting($journal->getId(), 'includeLatindex')) {
