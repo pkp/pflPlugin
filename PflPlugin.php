@@ -112,7 +112,7 @@ class PflPlugin extends GenericPlugin {
     /**
      * Get the average peer reviews per published submission in a reviewed section for the journal.
      */
-    function getDaysToPublicationAverage(int $journalId, ?string $dateStart = null): int
+    function getDaysToPublicationAverage(int $journalId, ?string $dateStart = null): ?int
     {
         $datediff = DB::connection() instanceof MySqlConnection
             ? 'DATEDIFF(p.date_published, s.date_submitted)'
