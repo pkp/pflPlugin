@@ -20,6 +20,7 @@ use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\LinkAction;
+use PKP\core\PKPString;
 use APP\core\Application;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
