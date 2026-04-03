@@ -321,7 +321,7 @@ class PflPlugin extends GenericPlugin {
                     'pflAcceptedPercent' => __('plugins.generic.pfl.percentage', ['num' => $acceptanceRate]),
                     'pflNumAcceptedClass' => __('plugins.generic.pfl.percentage', ['num' => $statistics['pflNumAcceptedClass']]),
                     'pflDaysToPublication' => $publicationDate->diff($submissionDate)->format('%a'),
-                    'pflDaysToPublicationClass' =>  $statistics['pflNumAcceptedClass'],
+                    'pflDaysToPublicationClass' =>  $statistics['pflDaysToPublicationClass'],
                     'pflIndexList' => $pflIndexListTransformed,
                     'editorialTeamUrl' => $router->url($request, null, 'about', 'editorialMasthead'),
                     'pflAcademicSociety' => $this->getSetting($journal->getId(), 'academicSociety') ?? 'NA',
