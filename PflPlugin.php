@@ -126,6 +126,7 @@ class PflPlugin extends GenericPlugin {
                 JOIN publications p ON (s.current_publication_id = p.publication_id)
                 JOIN sections sec ON (p.section_id = sec.section_id)
                 WHERE s.context_id = ' . ((int) $journalId) . ' AND sec.meta_reviewed = 1 AND s.status = ' . ((int) PKPSubmission::STATUS_PUBLISHED) . '
+                AND p.date_published > s.date_submitted
                 ' . ($dateStart ? ' AND s.date_submitted >= ' . strtotime($dateStart) : '') . '
                 GROUP BY p.publication_id, s.submission_id
             ) a'
