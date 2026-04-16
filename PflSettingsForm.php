@@ -97,6 +97,15 @@ class PflSettingsForm extends Form {
         // The validator below is removed because WOS URLs appear to have a weird colon that the validator (possibly correctly) does not like.
         // $this->addCheck(new FormValidatorUrl($this, 'wosUrl', 'optional', 'plugins.generic.pflPlugin.settings.indexes.manual.wos.urlInvalid'));
         $this->addCheck(new FormValidatorRegExp($this, 'wosUrl', 'optional', 'plugins.generic.pflPlugin.settings.indexes.manual.wos.urlInvalid', '/^https:\/\/mjl\.clarivate\.com/'));
+
+        // Professional organization membership URL validators (Issue #53)
+        $this->addCheck(new FormValidatorUrl($this, 'copeUrl', 'optional', 'plugins.generic.pflPlugin.settings.orgs.cope.urlInvalid'));
+        $this->addCheck(new FormValidatorUrl($this, 'iildUrl', 'optional', 'plugins.generic.pflPlugin.settings.orgs.iild.urlInvalid'));
+        $this->addCheck(new FormValidatorUrl($this, 'customOrgUrl', 'optional', 'plugins.generic.pflPlugin.settings.orgs.custom.urlInvalid'));
+
+        // Custom index URL validators (Issue #32)
+        $this->addCheck(new FormValidatorUrl($this, 'customIndex1Url', 'optional', 'plugins.generic.pflPlugin.settings.indexes.custom.urlInvalid'));
+        $this->addCheck(new FormValidatorUrl($this, 'customIndex2Url', 'optional', 'plugins.generic.pflPlugin.settings.indexes.custom.urlInvalid'));
     }
 
     /**
@@ -107,7 +116,11 @@ class PflSettingsForm extends Form {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
 
-        foreach (['includeMedline', 'includeDoaj', 'includeLatindex', 'includeScholar', 'scopusUrl', 'wosUrl', 'academicSociety', 'academicSocietyUrl', 'dateStart'] as $settingName) {
+        foreach (['includeMedline', 'includeDoaj', 'includeLatindex', 'includeScholar', 'scopusUrl', 'wosUrl', 'academicSociety', 'academicSocietyUrl', 'dateStart',
+            'copeUrl', 'iildUrl', 'customOrgName', 'customOrgAcronym', 'customOrgUrl',
+            'customIndex1Name', 'customIndex1Acronym', 'customIndex1Url',
+            'customIndex2Name', 'customIndex2Acronym', 'customIndex2Url',
+        ] as $settingName) {
             $this->setData($settingName, $this->plugin->getSetting($context->getId(), $settingName));
         }
     }
@@ -119,6 +132,9 @@ class PflSettingsForm extends Form {
     {
         $this->readUserVars([
             'includeMedline', 'includeDoaj', 'includeLatindex', 'includeScholar', 'scopusUrl', 'wosUrl', 'academicSociety', 'academicSocietyUrl', 'dateStart',
+            'copeUrl', 'iildUrl', 'customOrgName', 'customOrgAcronym', 'customOrgUrl',
+            'customIndex1Name', 'customIndex1Acronym', 'customIndex1Url',
+            'customIndex2Name', 'customIndex2Acronym', 'customIndex2Url',
         ]);
     }
 
@@ -149,7 +165,11 @@ class PflSettingsForm extends Form {
             $this->plugin->updateSetting($context->getId(), $booleanSettingName, (bool) $this->getData($booleanSettingName));
         }
 
-        foreach (['scopusUrl', 'wosUrl', 'academicSociety', 'academicSocietyUrl'] as $stringSettingName) {
+        foreach (['scopusUrl', 'wosUrl', 'academicSociety', 'academicSocietyUrl',
+            'copeUrl', 'iildUrl', 'customOrgName', 'customOrgAcronym', 'customOrgUrl',
+            'customIndex1Name', 'customIndex1Acronym', 'customIndex1Url',
+            'customIndex2Name', 'customIndex2Acronym', 'customIndex2Url',
+        ] as $stringSettingName) {
             $this->plugin->updateSetting($context->getId(), $stringSettingName, (string) $this->getData($stringSettingName));
         }
 

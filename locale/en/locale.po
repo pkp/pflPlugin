@@ -125,3 +125,93 @@ msgstr "Society"
 msgid "plugins.generic.pfl.academicSociety.fieldLabel"
 msgstr "Society name or acronym"
 
+
+msgid "plugins.generic.pflPlugin.settings.indexes.custom"
+msgstr "Custom Indexes"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.custom.description"
+msgstr "You may add up to two custom index entries. Provide a display name, an optional short acronym shown on the label, and the full URL to the journal's listing in that index."
+
+msgid "plugins.generic.pflPlugin.settings.indexes.custom.name"
+msgstr "Index name"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.custom.acronym"
+msgstr "Acronym"
+
+msgid "plugins.generic.pflPlugin.settings.indexes.custom.urlInvalid"
+msgstr "The custom index URL is not valid. Make sure the URL is complete and properly formatted."
+
+msgid "plugins.generic.pflPlugin.settings.orgs"
+msgstr "Professional Organization Memberships"
+
+msgid "plugins.generic.pflPlugin.settings.orgs.description"
+msgstr "If the journal is a member of a recognized publishing ethics or professional organization, enter the URL to the journal's membership page or profile. These will appear as a \"Member\" row on the Publication Facts Label."
+
+msgid "plugins.generic.pflPlugin.settings.orgs.cope"
+msgstr "COPE (Committee on Publication Ethics)"
+
+msgid "plugins.generic.pflPlugin.settings.orgs.cope.url"
+msgstr "COPE membership URL"
+
+msgid "plugins.generic.pflPlugin.settings.orgs.cope.urlInvalid"
+msgstr "The COPE URL is not valid. Make sure the URL is complete and properly formatted."
+
+msgid "plugins.generic.pflPlugin.settings.orgs.iild"
+msgstr "IILD (International Institute for Licensed Journalists)"
+
+msgid "plugins.generic.pflPlugin.settings.orgs.iild.url"
+msgstr "IILD membership URL"
+
+msgid "plugins.generic.pflPlugin.settings.orgs.iild.urlInvalid"
+msgstr "The IILD URL is not valid. Make sure the URL is complete and properly formatted."
+
+msgid "plugins.generic.pflPlugin.settings.orgs.custom"
+msgstr "Custom Organization"
+
+msgid "plugins.generic.pflPlugin.settings.orgs.custom.name"
+msgstr "Organization name"
+
+msgid "plugins.generic.pflPlugin.settings.orgs.custom.urlInvalid"
+msgstr "The custom organization URL is not valid. Make sure the URL is complete and properly formatted."
+
+msgid "plugins.generic.pflPlugin.clearCache"
+msgstr "Clear Statistics Cache"
+
+msgid "plugins.generic.pflPlugin.clearCache.success"
+msgstr "The statistics cache for this journal has been cleared. Fresh data will be fetched on the next article page view."
+
+msgid "plugins.generic.pflPlugin.dashboard"
+msgstr "PFL Dashboard"
+
+msgid "plugins.generic.pflPlugin.dashboard.journal"
+msgstr "Journal"
+
+msgid "plugins.generic.pflPlugin.dashboard.enabled"
+msgstr "PFL On"
+
+msgid "plugins.generic.pflPlugin.dashboard.indexes"
+msgstr "Indexes"
+
+msgid "plugins.generic.pflPlugin.dashboard.orgs"
+msgstr "Orgs"
+
+msgid "plugins.generic.pflPlugin.dashboard.cachedStats"
+msgstr "Stats Cached"
+
+msgid "plugins.generic.pflPlugin.dashboard.noJournals"
+msgstr "No journals found."
+
+msgid "plugins.generic.pflPlugin.dashboard.legend"
+msgstr "&#10003; = configured/active  &#8212; = not set. Indexes counts all enabled index entries (automatic + manual + custom). Orgs counts COPE, IILD, and any custom organization membership."
+
+msgid "plugins.generic.pflPlugin.settings.orgs.custom.acronym"
+msgstr "Acronym"
+
+msgid "plugins.generic.pflPlugin.dashboard.exportCsv"
+msgstr "Download CSV"
+
+msgid "plugins.generic.pflPlugin.dashboard.clearCache"
+msgstr "Clear"
+
+msgid "plugins.generic.pflPlugin.clearJournalCache.success"
+msgstr "Statistics cache for this journal has been cleared."
