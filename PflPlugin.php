@@ -128,14 +128,15 @@ class PflPlugin extends GenericPlugin {
      */
     function getDaysToPublicationAverage(int $journalId, ?string $dateStart = null): ?int
     {
-        // Date-diff expression is database-specific (MySQL vs PostgreSQL)
-        $datediff = DB::connection() instanceof MySqlConnection
-            ? 'DATEDIFF(p.date_published, s.date_submitted)'
-            : "EXTRACT(DAY FROM p.date_published::date - s.date_submitted::date)";
+        // Date-diff expression is database-specific (MySQL vs PostgreSQL).
+        // Both branches are static SQL strings — no user input involved.
+        $datediffExpr = DB::connection() instanceof MySqlConnection
+            ? DB::raw('DATEDIFF(p.date_published, s.date_submitted)')
+            : DB::raw('EXTRACT(DAY FROM p.date_published::date - s.date_submitted::date)');
 
         try {
-            $row = DB::table(function ($query) use ($journalId, $dateStart, $datediff) {
-                $query->selectRaw("{$datediff} AS time_to_publish")
+            $row = DB::table(function ($query) use ($journalId, $dateStart, $datediffExpr) {
+                $query->selectRaw((string) $datediffExpr . ' AS time_to_publish')
                     ->from('review_assignments AS ra')
                     ->join('submissions AS s', 'ra.submission_id', '=', 's.submission_id')
                     ->join('publications AS p', 's.current_publication_id', '=', 'p.publication_id')
@@ -222,6 +223,22 @@ class PflPlugin extends GenericPlugin {
         } catch (\Exception $e) {
             return null;
         }
+    }
+
+    /**
+     * Normalize an author collection from publication data to a zero-indexed PHP array.
+     * Handles both OJS 3.4 (plain array) and OJS 3.5 (Illuminate Collection).
+     *
+     * @param mixed $authorsRaw Return value of $publication->getData('authors')
+     * @return array
+     */
+    protected function normalizeAuthorsToArray(mixed $authorsRaw): array
+    {
+        if ($authorsRaw === null) return [];
+        if (is_object($authorsRaw) && method_exists($authorsRaw, 'all')) {
+            return array_values($authorsRaw->all());
+        }
+        return array_values((array) $authorsRaw);
     }
 
     /**
@@ -316,7 +333,7 @@ class PflPlugin extends GenericPlugin {
 
         // Article-specific PFL data
         $competingInterests = [];
-        foreach (($publication->getData('authors') ?? []) as $author) {
+        foreach ($this->normalizeAuthorsToArray($publication->getData('authors')) as $author) {
             $ciStatement = trim($author->getLocalizedData('competingInterests') ?? '');
             if (!empty($ciStatement)) $competingInterests[$author->getId()] = $ciStatement;
         }
@@ -665,9 +682,7 @@ class PflPlugin extends GenericPlugin {
     {
         $authorIndex = 0;
         $publication = $templateMgr->getTemplateVars('publication');
-        $authorsRaw = $publication->getData('authors');
-        // Normalize to a zero-indexed array compatible with both OJS 3.4 (array) and 3.5 (Collection)
-        $authors = array_values(is_object($authorsRaw) && method_exists($authorsRaw, 'all') ? $authorsRaw->all() : ($authorsRaw ?? []));
+        $authors = $this->normalizeAuthorsToArray($publication->getData('authors'));
 
         // Add an ID to the author list
         $startMarkup = '<ul id="author-list" class="authors">';
