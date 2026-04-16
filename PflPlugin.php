@@ -20,6 +20,7 @@ use PKP\plugins\GenericPlugin;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\linkAction\request\AjaxModal;
+use PKP\linkAction\request\RedirectAction;
 use PKP\linkAction\LinkAction;
 use PKP\core\PKPString;
 use APP\core\Application;
@@ -265,6 +266,36 @@ class PflPlugin extends GenericPlugin {
             $pflIndexList[$wosUrl] = ['name' => 'WS', 'description' => 'Web of Science'];
         }
 
+        // Custom user-defined indexes (Issue #32)
+        if (($customIndex1Url = $this->getSetting($journal->getId(), 'customIndex1Url'))
+            && ($customIndex1Name = $this->getSetting($journal->getId(), 'customIndex1Name'))
+        ) {
+            $acronym = $this->getSetting($journal->getId(), 'customIndex1Acronym') ?: $customIndex1Name;
+            $pflIndexList[$customIndex1Url] = ['name' => $acronym, 'description' => $customIndex1Name];
+        }
+
+        if (($customIndex2Url = $this->getSetting($journal->getId(), 'customIndex2Url'))
+            && ($customIndex2Name = $this->getSetting($journal->getId(), 'customIndex2Name'))
+        ) {
+            $acronym = $this->getSetting($journal->getId(), 'customIndex2Acronym') ?: $customIndex2Name;
+            $pflIndexList[$customIndex2Url] = ['name' => $acronym, 'description' => $customIndex2Name];
+        }
+
+        // Professional organization memberships (Issue #53)
+        $pflOrgMemberships = [];
+        if ($copeUrl = $this->getSetting($journal->getId(), 'copeUrl')) {
+            $pflOrgMemberships[] = ['name' => 'COPE', 'description' => 'Committee on Publication Ethics', 'url' => $copeUrl];
+        }
+        if ($iildUrl = $this->getSetting($journal->getId(), 'iildUrl')) {
+            $pflOrgMemberships[] = ['name' => 'IILD', 'description' => 'International Institute for Licensed Journalists', 'url' => $iildUrl];
+        }
+        if (($customOrgUrl = $this->getSetting($journal->getId(), 'customOrgUrl'))
+            && ($customOrgName = $this->getSetting($journal->getId(), 'customOrgName'))
+        ) {
+            $customOrgAcronym = $this->getSetting($journal->getId(), 'customOrgAcronym') ?: $customOrgName;
+            $pflOrgMemberships[] = ['name' => $customOrgAcronym, 'description' => $customOrgName, 'url' => $customOrgUrl];
+        }
+
         // Journal-specific PFL data
         $acceptanceNumerator = $this->getPublishedReviewableSubmissionCount($journal->getId(), $dateStart);
         $acceptanceDenominator = $this->getReviewableSubmissionCount($journal->getId(), $dateStart);
@@ -359,6 +390,7 @@ class PflPlugin extends GenericPlugin {
                     'pflDaysToPublication' => $daysToPublication,
                     'pflDaysToPublicationClass' =>  $statistics['pflDaysToPublicationClass'],
                     'pflIndexList' => $pflIndexListTransformed,
+                    'pflOrgMemberships' => $pflOrgMemberships,
                     'editorialTeamUrl' => $router->url($request, null, 'about', 'editorialMasthead'),
                     'pflAcademicSociety' => $this->getSetting($journal->getId(), 'academicSociety') ?? 'NA',
                     'pflAcademicSocietyUrl' => $this->getSetting($journal->getId(), 'academicSocietyUrl'),
@@ -386,6 +418,7 @@ class PflPlugin extends GenericPlugin {
         }
 
         $router = $request->getRouter();
+
         $linkAction = new LinkAction(
             'settings',
             new AjaxModal(
@@ -408,6 +441,55 @@ class PflPlugin extends GenericPlugin {
         );
 
         array_unshift($actions, $linkAction);
+
+        // Cache invalidation control (Feature 3)
+        $clearCacheAction = new LinkAction(
+            'clearCache',
+            new AjaxModal(
+                $router->url(
+                    $request,
+                    null,
+                    null,
+                    'manage',
+                    null,
+                    [
+                        'verb' => 'clearCache',
+                        'plugin' => $this->getName(),
+                        'category' => 'generic',
+                    ]
+                ),
+                __('plugins.generic.pflPlugin.clearCache')
+            ),
+            __('plugins.generic.pflPlugin.clearCache'),
+            null
+        );
+        array_unshift($actions, $clearCacheAction);
+
+        // Dashboard link — site admin only (Issue #47)
+        $user = $request->getUser();
+        if ($user && $user->hasRole([\PKP\security\Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE)) {
+            $dashboardAction = new LinkAction(
+                'dashboard',
+                new AjaxModal(
+                    $router->url(
+                        $request,
+                        null,
+                        null,
+                        'manage',
+                        null,
+                        [
+                            'verb' => 'dashboard',
+                            'plugin' => $this->getName(),
+                            'category' => 'generic',
+                        ]
+                    ),
+                    __('plugins.generic.pflPlugin.dashboard')
+                ),
+                __('plugins.generic.pflPlugin.dashboard'),
+                null
+            );
+            array_unshift($actions, $dashboardAction);
+        }
 
         return $actions;
     }
@@ -636,7 +718,85 @@ class PflPlugin extends GenericPlugin {
 
                 $form->initData();
                 return new JSONMessage(true, $form->fetch($request));
+
+            case 'clearCache':
+                // Cache invalidation control (Feature 3)
+                $context = $request->getContext();
+                if ($context) {
+                    Cache::forget('pflStats-' . $context->getId());
+                }
+                $notificationMgr = new \APP\notification\NotificationManager();
+                $notificationMgr->createTrivialNotification(
+                    $request->getUser()->getId(),
+                    \PKP\notification\Notification::NOTIFICATION_TYPE_SUCCESS,
+                    ['contents' => __('plugins.generic.pflPlugin.clearCache.success')]
+                );
+                return new JSONMessage(true);
+
+            case 'dashboard':
+                // Site Admin Dashboard (Issue #47)
+                $user = $request->getUser();
+                if (!$user || !$user->hasRole([\PKP\security\Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE)) {
+                    return new JSONMessage(false, 'Forbidden');
+                }
+                return new JSONMessage(true, $this->_fetchDashboard($request));
         }
         return parent::manage($args, $request);
+    }
+
+    /**
+     * Build the Site Admin dashboard view (Issue #47).
+     */
+    protected function _fetchDashboard($request): string
+    {
+        $contextDao = Application::getContextDAO();
+        $contexts = $contextDao->getAll(true);
+
+        $journalRows = [];
+        while ($context = $contexts->next()) {
+            $journalId = $context->getId();
+            $enabled = (bool) $this->getEnabled($journalId);
+            $dateStart = $this->getSetting($journalId, 'dateStart');
+
+            $indexCount = 0;
+            foreach (['includeDoaj', 'includeScholar', 'includeMedline', 'includeLatindex'] as $idx) {
+                if ($this->getSetting($journalId, $idx)) $indexCount++;
+            }
+            if ($this->getSetting($journalId, 'scopusUrl')) $indexCount++;
+            if ($this->getSetting($journalId, 'wosUrl')) $indexCount++;
+            if ($this->getSetting($journalId, 'customIndex1Url') && $this->getSetting($journalId, 'customIndex1Name')) $indexCount++;
+            if ($this->getSetting($journalId, 'customIndex2Url') && $this->getSetting($journalId, 'customIndex2Name')) $indexCount++;
+
+            $orgCount = 0;
+            if ($this->getSetting($journalId, 'copeUrl')) $orgCount++;
+            if ($this->getSetting($journalId, 'iildUrl')) $orgCount++;
+            if ($this->getSetting($journalId, 'customOrgUrl') && $this->getSetting($journalId, 'customOrgName')) $orgCount++;
+
+            $stats = null;
+            try {
+                $stats = Cache::get('pflStats-' . $journalId);
+            } catch (\Exception $e) {
+                // Not critical
+            }
+
+            $journalRows[] = [
+                'id'          => $journalId,
+                'title'       => $context->getLocalizedName(),
+                'path'        => $context->getData('urlPath'),
+                'enabled'     => $enabled,
+                'dateStart'   => $dateStart,
+                'indexCount'  => $indexCount,
+                'orgCount'    => $orgCount,
+                'hasCachedStats' => $stats !== null,
+                'academicSociety' => $this->getSetting($journalId, 'academicSociety') ?: '—',
+            ];
+        }
+
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'pluginName'  => $this->getName(),
+            'journalRows' => $journalRows,
+        ]);
+        return $templateMgr->fetch($this->getTemplateResource('dashboard.tpl'));
     }
 }
