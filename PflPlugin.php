@@ -706,9 +706,7 @@ class PflPlugin extends GenericPlugin {
                             $ciStatement = $authors[$authorIndex]->getLocalizedData('competingInterests');
                             $authorIndex++;
                             if ($ciStatement) {
-                                $safeHtml = method_exists('PKP\core\PKPString', 'stripUnsafeHtml')
-                                    ? PKPString::stripUnsafeHtml($ciStatement)
-                                    : htmlspecialchars($ciStatement);
+                                $safeHtml = PKPString::stripUnsafeHtml($ciStatement);
                                 return '
                                 <div class="ciStatement">
                                     <div class="ciStatementLabel">' . htmlspecialchars(__('author.competingInterests')) . '</div>
@@ -790,7 +788,7 @@ class PflPlugin extends GenericPlugin {
                         // Cache driver unavailable — not critical
                     }
                 }
-                return new JSONMessage(true, ['cleared' => $journalId]);
+                return new JSONMessage(true, ['status' => true, 'journalId' => $journalId]);
         }
         return parent::manage($args, $request);
     }

@@ -76,7 +76,7 @@
                         type="button"
                         title="{translate key="plugins.generic.pflPlugin.clearCache"}"
                         style="margin-left:4px; font-size:0.75em; padding:1px 6px; cursor:pointer; vertical-align:middle;"
-                        onclick="pflClearJournalCache(this, {$row.id|escape:'javascript'})">
+                        onclick="pflClearJournalCache(this, {$row.id|intval})">
                         {translate key="plugins.generic.pflPlugin.dashboard.clearCache"}
                     </button>
                 </td>
@@ -101,6 +101,7 @@
     var clearUrl = {$clearJournalCacheUrl|json_encode};
 
     window.pflClearJournalCache = function(btn, journalId) {
+        var originalText = btn.textContent;
         btn.disabled = true;
         btn.textContent = '…';
         jQuery.getJSON(clearUrl, {ldelim}journalId: journalId{rdelim}, function(data) {
@@ -110,14 +111,14 @@
                     + ' <button type="button" title="{translate key="plugins.generic.pflPlugin.clearCache"|escape:'javascript'}"'
                     + ' style="margin-left:4px;font-size:0.75em;padding:1px 6px;cursor:pointer;vertical-align:middle;"'
                     + ' onclick="pflClearJournalCache(this,' + journalId + ')">'
-                    + btn.textContent + '</button>';
+                    + originalText + '</button>';
             } else {
                 btn.disabled = false;
-                btn.textContent = '{translate key="plugins.generic.pflPlugin.dashboard.clearCache"|escape:'javascript'}';
+                btn.textContent = originalText;
             }
         }).fail(function() {
             btn.disabled = false;
-            btn.textContent = '{translate key="plugins.generic.pflPlugin.dashboard.clearCache"|escape:'javascript'}';
+            btn.textContent = originalText;
         });
     };
 }());

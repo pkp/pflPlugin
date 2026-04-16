@@ -3,7 +3,7 @@
 [![OJS 3.5+](https://img.shields.io/badge/OJS-3.5%2B-blue)](https://pkp.sfu.ca/software/ojs/)
 [![PHP 8.3+](https://img.shields.io/badge/PHP-8.3%2B-blue)](https://www.php.net/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Version](https://img.shields.io/badge/version-2.0.0.0-green)](#version-history)
+[![Version](https://img.shields.io/badge/version-2.1.0.0-green)](#version-history)
 
 This plugin integrates the [Publication Facts Label](https://github.com/pkp/pfl) into Open Journal Systems (OJS). The PFL is a standardized, reader-facing summary of a journal's integrity characteristics — acceptance rates, peer reviewer counts, competing-interest disclosure rates, funding disclosure, indexing, and more — displayed on every article landing page.
 
