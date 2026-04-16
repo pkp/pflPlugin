@@ -307,7 +307,7 @@ class PflPlugin extends GenericPlugin {
 
         // Article-specific PFL data
         $competingInterests = [];
-        foreach (collect($publication->getData('authors') ?? []) as $author) {
+        foreach (($publication->getData('authors') ?? []) as $author) {
             $ciStatement = trim($author->getLocalizedData('competingInterests') ?? '');
             if (!empty($ciStatement)) $competingInterests[$author->getId()] = $ciStatement;
         }
@@ -656,7 +656,9 @@ class PflPlugin extends GenericPlugin {
     {
         $authorIndex = 0;
         $publication = $templateMgr->getTemplateVars('publication');
-        $authors = array_values(collect($publication->getData('authors') ?? [])->all());
+        $authorsRaw = $publication->getData('authors');
+        // Normalize to a zero-indexed array compatible with both OJS 3.4 (array) and 3.5 (Collection)
+        $authors = array_values(is_object($authorsRaw) && method_exists($authorsRaw, 'all') ? $authorsRaw->all() : ($authorsRaw ?? []));
 
         // Add an ID to the author list
         $startMarkup = '<ul id="author-list" class="authors">';

@@ -203,3 +203,6 @@ msgstr "No journals found."
 
 msgid "plugins.generic.pflPlugin.dashboard.legend"
 msgstr "&#10003; = configured/active  &#8212; = not set. Indexes counts all enabled index entries (automatic + manual + custom). Orgs counts COPE, IILD, and any custom organization membership."
+
+msgid "plugins.generic.pflPlugin.settings.orgs.custom.acronym"
+msgstr "Acronym"

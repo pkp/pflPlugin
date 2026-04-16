@@ -101,7 +101,7 @@ $('#pflPluginSettingsForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler')
 {/fbvFormSection}
 {fbvFormSection title="plugins.generic.pflPlugin.settings.orgs.custom"}
 {fbvElement type="text" id="customOrgName" value=$customOrgName label="plugins.generic.pflPlugin.settings.orgs.custom.name" size=$fbvStyles.size.MEDIUM inline=true}
-{fbvElement type="text" id="customOrgAcronym" value=$customOrgAcronym label="plugins.generic.pflPlugin.settings.indexes.custom.acronym" size=$fbvStyles.size.SMALL inline=true}
+{fbvElement type="text" id="customOrgAcronym" value=$customOrgAcronym label="plugins.generic.pflPlugin.settings.orgs.custom.acronym" size=$fbvStyles.size.SMALL inline=true}
 {fbvElement type="text" id="customOrgUrl" value=$customOrgUrl label="common.url" inline=true}
 {/fbvFormSection}
 {/fbvFormArea}
