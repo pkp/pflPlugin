@@ -20,7 +20,6 @@ use PKP\plugins\GenericPlugin;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\linkAction\request\AjaxModal;
-use PKP\linkAction\request\RedirectAction;
 use PKP\linkAction\LinkAction;
 use PKP\core\PKPString;
 use APP\core\Application;
@@ -67,16 +66,20 @@ class PflPlugin extends GenericPlugin {
      */
     function getPublishedReviewableSubmissionCount(int $journalId, ?string $dateStart = null): int
         {
-        $row = DB::table('submissions AS s')
-            ->select([DB::raw('COUNT(*) AS submission_count')])
-            ->join('publications AS p', 's.current_publication_id', '=', 'p.publication_id')
-            ->join('sections AS sec', 'p.section_id', '=', 'sec.section_id')
-            ->where('s.context_id', $journalId)
-            ->where('sec.meta_reviewed', 1)
-            ->where('s.status', PKPSubmission::STATUS_PUBLISHED)
-            ->when($dateStart, fn($q) => $q->where('s.date_submitted', '>=', strtotime($dateStart)))
-            ->get()->first();
-        return (int) ($row->submission_count ?? 0);
+        try {
+            $row = DB::table('submissions AS s')
+                ->select([DB::raw('COUNT(*) AS submission_count')])
+                ->join('publications AS p', 's.current_publication_id', '=', 'p.publication_id')
+                ->join('sections AS sec', 'p.section_id', '=', 'sec.section_id')
+                ->where('s.context_id', $journalId)
+                ->where('sec.meta_reviewed', 1)
+                ->where('s.status', PKPSubmission::STATUS_PUBLISHED)
+                ->when($dateStart, fn($q) => $q->where('s.date_submitted', '>=', strtotime($dateStart)))
+                ->get()->first();
+            return (int) ($row->submission_count ?? 0);
+        } catch (\Exception $e) {
+            return 0;
+        }
     }
 
     /**
@@ -84,39 +87,40 @@ class PflPlugin extends GenericPlugin {
      */
     function getReviewerCount(int $submissionId): int
     {
-        $row = DB::table('review_assignments AS r')
-            ->select([DB::raw('COUNT(DISTINCT r.reviewer_id) AS reviewer_count')])
-            ->whereNotNull('r.date_completed')
-            ->where('r.submission_id', $submissionId)
-            ->get()->first();
-        return (int) ($row->reviewer_count ?? 0);
+        try {
+            $row = DB::table('review_assignments AS r')
+                ->select([DB::raw('COUNT(DISTINCT r.reviewer_id) AS reviewer_count')])
+                ->whereNotNull('r.date_completed')
+                ->where('r.submission_id', $submissionId)
+                ->get()->first();
+            return (int) ($row->reviewer_count ?? 0);
+        } catch (\Exception $e) {
+            return 0;
+        }
     }
 
     /**
      * Get the average peer reviews per published submission in a reviewed section for the journal.
      */
     function getReviewerAverage(int $journalId, ?string $dateStart = null): float
-        {
-        $bindings = [$journalId, PKPSubmission::STATUS_PUBLISHED];
-        $dateCondition = '';
-        if ($dateStart) {
-            $dateCondition = ' AND s.date_submitted >= ?';
-            $bindings[] = strtotime($dateStart);
+    {
+        try {
+            $row = DB::table(function ($query) use ($journalId, $dateStart) {
+                $query->selectRaw('COUNT(*) AS ra_count')
+                    ->from('review_assignments AS ra')
+                    ->join('submissions AS s', 'ra.submission_id', '=', 's.submission_id')
+                    ->join('publications AS p', 's.current_publication_id', '=', 'p.publication_id')
+                    ->join('sections AS sec', 'p.section_id', '=', 'sec.section_id')
+                    ->where('s.context_id', $journalId)
+                    ->where('sec.meta_reviewed', 1)
+                    ->where('s.status', PKPSubmission::STATUS_PUBLISHED)
+                    ->when($dateStart, fn($q) => $q->where('s.date_submitted', '>=', strtotime($dateStart)))
+                    ->groupBy('s.submission_id');
+            }, 'a')->selectRaw('AVG(ra_count) AS reviewer_count')->get()->first();
+            return (float) ($row->reviewer_count ?? 0);
+        } catch (\Exception $e) {
+            return 0;
         }
-
-        $rows = DB::select(
-            'SELECT AVG(a.ra_count) AS reviewer_count FROM (
-                SELECT COUNT(*) AS ra_count FROM review_assignments ra
-                JOIN submissions s ON (ra.submission_id = s.submission_id)
-                JOIN publications p ON (s.current_publication_id = p.publication_id)
-                JOIN sections sec ON (p.section_id = sec.section_id)
-                WHERE s.context_id = ? AND sec.meta_reviewed = 1 AND s.status = ?
-                ' . $dateCondition . '
-                GROUP BY s.submission_id
-            ) a',
-            $bindings
-        );
-        return (float) ($rows[0]->reviewer_count ?? 0);
     }
 
     /**
@@ -124,32 +128,30 @@ class PflPlugin extends GenericPlugin {
      */
     function getDaysToPublicationAverage(int $journalId, ?string $dateStart = null): ?int
     {
+        // Date-diff expression is database-specific (MySQL vs PostgreSQL)
         $datediff = DB::connection() instanceof MySqlConnection
             ? 'DATEDIFF(p.date_published, s.date_submitted)'
-            : "EXTRACT(DAY FROM p.date_published - s.date_submitted)";
+            : "EXTRACT(DAY FROM p.date_published::date - s.date_submitted::date)";
 
-        $bindings = [$journalId, PKPSubmission::STATUS_PUBLISHED];
-        $dateCondition = '';
-        if ($dateStart) {
-            $dateCondition = ' AND s.date_submitted >= ?';
-            $bindings[] = strtotime($dateStart);
+        try {
+            $row = DB::table(function ($query) use ($journalId, $dateStart, $datediff) {
+                $query->selectRaw("{$datediff} AS time_to_publish")
+                    ->from('review_assignments AS ra')
+                    ->join('submissions AS s', 'ra.submission_id', '=', 's.submission_id')
+                    ->join('publications AS p', 's.current_publication_id', '=', 'p.publication_id')
+                    ->join('sections AS sec', 'p.section_id', '=', 'sec.section_id')
+                    ->where('s.context_id', $journalId)
+                    ->where('s.status', PKPSubmission::STATUS_PUBLISHED)
+                    ->where('sec.meta_reviewed', 1)
+                    ->whereRaw('p.date_published > s.date_submitted')
+                    ->when($dateStart, fn($q) => $q->where('s.date_submitted', '>=', strtotime($dateStart)))
+                    ->groupBy('p.publication_id', 's.submission_id');
+            }, 'a')->selectRaw('AVG(time_to_publish) AS time_to_publish')->get()->first();
+            $value = $row->time_to_publish ?? null;
+            return $value === null ? null : (int) $value;
+        } catch (\Exception $e) {
+            return null;
         }
-
-        $rows = DB::select(
-            'SELECT AVG(a.time_to_publish) AS time_to_publish FROM (
-                SELECT ' . $datediff . ' AS time_to_publish FROM review_assignments ra
-                JOIN submissions s ON (ra.submission_id = s.submission_id)
-                JOIN publications p ON (s.current_publication_id = p.publication_id)
-                JOIN sections sec ON (p.section_id = sec.section_id)
-                WHERE s.context_id = ? AND sec.meta_reviewed = 1 AND s.status = ?
-                AND p.date_published > s.date_submitted
-                ' . $dateCondition . '
-                GROUP BY p.publication_id, s.submission_id
-            ) a',
-            $bindings
-        );
-        $value = $rows[0]->time_to_publish ?? null;
-        return $value === null ? null : (int) $value;
     }
 
     /**
@@ -157,23 +159,19 @@ class PflPlugin extends GenericPlugin {
      */
     function getReviewableSubmissionCount(int $journalId, ?string $dateStart = null): int
     {
-        $bindings = [$journalId];
-        $dateCondition = '';
-        if ($dateStart) {
-            $dateCondition = ' AND s.date_submitted >= ?';
-            $bindings[] = strtotime($dateStart);
+        try {
+            $row = DB::table('submissions AS s')
+                ->select([DB::raw('COUNT(*) AS submission_count')])
+                ->join('publications AS p', 's.current_publication_id', '=', 'p.publication_id')
+                ->join('sections AS sec', 'p.section_id', '=', 'sec.section_id')
+                ->where('s.context_id', $journalId)
+                ->where('sec.meta_reviewed', 1)
+                ->when($dateStart, fn($q) => $q->where('s.date_submitted', '>=', strtotime($dateStart)))
+                ->get()->first();
+            return (int) ($row->submission_count ?? 0);
+        } catch (\Exception $e) {
+            return 0;
         }
-
-        $rows = DB::select(
-            'SELECT COUNT(*) AS submission_count
-            FROM submissions s
-            JOIN publications p ON (s.current_publication_id = p.publication_id)
-            JOIN sections sec ON (p.section_id = sec.section_id)
-            WHERE s.context_id = ? AND sec.meta_reviewed = 1'
-            . $dateCondition,
-            $bindings
-        );
-        return (int) ($rows[0]->submission_count ?? 0);
     }
 
     /**
@@ -181,21 +179,26 @@ class PflPlugin extends GenericPlugin {
      */
     function getCompetingInterestsSubmissionCount(int $journalId, ?string $dateStart = null): int
     {
-        $row = DB::table('submissions AS s')
-            ->select([DB::raw('COUNT(*) AS submission_count')])
-            ->join('publications AS p', 's.current_publication_id', '=', 'p.publication_id')
-            ->join('authors AS a', 'a.publication_id', '=', 'p.publication_id')
-            ->join('author_settings AS a_s', fn($qb) =>
-                $qb->where('a_s.author_id', '=', DB::raw('a.author_id'))
-                    ->where('a_s.setting_name', '=', 'competingInterests')
-                    ->where('a_s.setting_value', '<>', '')
-            )
-            ->join('sections AS sec', 'p.section_id', '=', 'sec.section_id')
-            ->where('s.context_id', $journalId)
-            ->where('sec.meta_reviewed', 1)
-            ->where('s.status', PKPSubmission::STATUS_PUBLISHED)
-            ->get()->first();
-        return (int) ($row->submission_count ?? 0);
+        try {
+            $row = DB::table('submissions AS s')
+                ->select([DB::raw('COUNT(*) AS submission_count')])
+                ->join('publications AS p', 's.current_publication_id', '=', 'p.publication_id')
+                ->join('authors AS a', 'a.publication_id', '=', 'p.publication_id')
+                ->join('author_settings AS a_s', function ($join) {
+                    $join->on('a_s.author_id', '=', 'a.author_id')
+                        ->where('a_s.setting_name', '=', 'competingInterests')
+                        ->where('a_s.setting_value', '<>', '');
+                })
+                ->join('sections AS sec', 'p.section_id', '=', 'sec.section_id')
+                ->where('s.context_id', $journalId)
+                ->where('sec.meta_reviewed', 1)
+                ->where('s.status', PKPSubmission::STATUS_PUBLISHED)
+                ->when($dateStart, fn($q) => $q->where('s.date_submitted', '>=', strtotime($dateStart)))
+                ->get()->first();
+            return (int) ($row->submission_count ?? 0);
+        } catch (\Exception $e) {
+            return 0;
+        }
     }
 
     /**
@@ -204,17 +207,21 @@ class PflPlugin extends GenericPlugin {
     function getFundedSubmissionCount(int $journalId, ?string $dateStart = null): ?int
     {
         if (!PluginRegistry::getPlugin('generic', 'FundingPlugin')) return null;
-        $row = DB::table('submissions AS s')
-            ->select([DB::raw('COUNT(*) AS submission_count')])
-            ->join('publications AS p', 's.current_publication_id', '=', 'p.publication_id')
-            ->join('funders AS f', 'f.submission_id', '=', 's.submission_id')
-            ->join('sections AS sec', 'p.section_id', '=', 'sec.section_id')
-            ->where('s.context_id', $journalId)
-            ->where('sec.meta_reviewed', 1)
-            ->where('s.status', PKPSubmission::STATUS_PUBLISHED)
-            ->when($dateStart, fn($qb) => $qb->where('s.date_submitted', '>=', strtotime($dateStart)))
-            ->get()->first();
-        return (int) ($row->submission_count ?? 0);
+        try {
+            $row = DB::table('submissions AS s')
+                ->select([DB::raw('COUNT(*) AS submission_count')])
+                ->join('publications AS p', 's.current_publication_id', '=', 'p.publication_id')
+                ->join('funders AS f', 'f.submission_id', '=', 's.submission_id')
+                ->join('sections AS sec', 'p.section_id', '=', 'sec.section_id')
+                ->where('s.context_id', $journalId)
+                ->where('sec.meta_reviewed', 1)
+                ->where('s.status', PKPSubmission::STATUS_PUBLISHED)
+                ->when($dateStart, fn($qb) => $qb->where('s.date_submitted', '>=', strtotime($dateStart)))
+                ->get()->first();
+            return (int) ($row->submission_count ?? 0);
+        } catch (\Exception $e) {
+            return null;
+        }
     }
 
     /**
@@ -229,6 +236,7 @@ class PflPlugin extends GenericPlugin {
         $router = $request->getRouter();
 
         $journal = $request->getContext();
+        if (!$journal) return false;
         $dateStart = $this->getSetting($journal->getId(), 'dateStart');
 
         // https://github.com/asmecher/pflPlugin/issues/20 Only apply PFL to peer reviewed sections
@@ -238,7 +246,8 @@ class PflPlugin extends GenericPlugin {
         // Check if the submission came in before a specified start date for inclusion
         $article = $templateMgr->getTemplateVars('article');
         $publication = $templateMgr->getTemplateVars('publication');
-        if ($dateStart && strtotime($dateStart) > strtotime($article->getData('dateSubmitted'))) return false;
+        $dateSubmitted = $article->getData('dateSubmitted');
+        if ($dateStart && $dateSubmitted && strtotime($dateStart) > strtotime($dateSubmitted)) return false;
 
         $pflIndexList = [];
         $onlineIssn = urlencode($journal->getSetting('onlineIssn'));
