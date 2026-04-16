@@ -216,7 +216,8 @@ Each article landing page shows a Publication Facts Label with the following row
 
 The following features are tracked in the issue queue and have not yet been implemented. Each entry documents why it was not done and what additional work or infrastructure would be required before it can be.
 
-| Feature | Issue | Why it can't be done now | Additional requirements to implement |
+
+| Feature | Issue | Curenttechnical blockers | Additional requirements to implement |
 |---|---|---|---|
 | **Open Peer Review Indicator** — highlight reviewer count with links to published reviews when the Open Peer Review plugin is active | #46 | There is no canonical OPR plugin in OJS 3.5 with a stable public API. We cannot know which plugin is installed, how it stores publicly-visible reviews, or whether the data model is consistent across installations. | A stable, versioned OPR plugin for OJS 3.5 must first exist and export a public PHP API (e.g. a static method or hook) that returns published review URLs for a given submission ID. The PFL plugin can then detect it via `PluginRegistry` and conditionally link the reviewer count badge. |
 | **ORCID Two-Way Verification** — let editors and board members verify ORCID and push journal role to their ORCID profile | #45 | ORCID's member API (used to write to profiles) requires institutional registration, a client ID/secret issued by ORCID, and a full OAuth 2.0 authorization-code flow. None of these can be embedded in a generic plugin without per-server setup. | (1) Register the journal/institution as an ORCID member organization and obtain `ORCID_CLIENT_ID` / `ORCID_CLIENT_SECRET`. (2) Implement an OAuth 2.0 callback route in OJS. (3) Add a settings page where site admins enter the credentials. (4) Implement the `/v3.0/activities/employments` write endpoint call. This is a multi-class, multi-route change requiring live ORCID Sandbox testing. |
@@ -239,6 +240,8 @@ Pull requests are welcome. See [PKP Forum](https://forum.pkp.sfu.ca/) for discus
 | [Funding Plugin](https://github.com/ajnyga/funding) | Optional | Enables funding disclosure row; detected automatically |
 
 ### Submodule
+
+**One qualifier** — the pfl/ submodule must be initialized. The plugin depends on the pkp/pfl git submodule for the Vue.js web component and locale JSON files. When installing from the Plugin Gallery this is handled automatically; when installing from Git you must run git submodule update --init. Without it, the label widget simply won't render.
 
 The `pfl/` directory is a Git submodule pointing to [pkp/pfl](https://github.com/pkp/pfl). When installing from Git:
 ```bash
@@ -286,5 +289,14 @@ If your hosting environment has aggressive query time limits (e.g., 2–3 second
 
 ---
 
+- All DB queries use the query builder with bound parameters (no raw-SQL injection risk)
+- Every query is wrapped in try/catch — a timeout or missing table returns 0/null instead of crashing the article page
+- The 24-hour statistics cache means heavy queries run at most once per day per journal
+- All settings validated (CSRF, POST-only, URL format, ISSN checks)
+- Role-checked admin endpoints
+- authorCiFilter compatible with OJS 3.4 (array) and 3.5 (Collection)
+- English locale fallback prevents blank labels
+
+---
 *For support, please use the [PKP Community Forum](https://forum.pkp.sfu.ca/).*
 *Plugin developed with contributions from Simon Fraser University, John Willinsky, and the PKP community.*
