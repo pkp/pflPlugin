@@ -206,3 +206,12 @@ msgstr "&#10003; = configured/active  &#8212; = not set. Indexes counts all enab
 
 msgid "plugins.generic.pflPlugin.settings.orgs.custom.acronym"
 msgstr "Acronym"
+
+msgid "plugins.generic.pflPlugin.dashboard.exportCsv"
+msgstr "Download CSV"
+
+msgid "plugins.generic.pflPlugin.dashboard.clearCache"
+msgstr "Clear"
+
+msgid "plugins.generic.pflPlugin.clearJournalCache.success"
+msgstr "Statistics cache for this journal has been cleared."

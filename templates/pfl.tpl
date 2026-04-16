@@ -8,7 +8,11 @@
 * Journal Integrity Initiative Publication Facts Label template
 *}
 
-<section class="item pflPlugin">
+<section class="item pflPlugin"
+         role="region"
+         aria-label="{translate key="plugins.generic.pfl.displayName"}"
+         aria-live="polite"
+         aria-atomic="false">
 
 <publication-facts-label></publication-facts-label>
 <script>

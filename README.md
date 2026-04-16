@@ -203,21 +203,28 @@ Each article landing page shows a Publication Facts Label with the following row
 
 ---
 
+## Changes in v2.1.0.0
+
+### New Features
+- **Dashboard CSV Export** (Issue #47) — Site admins can download the full dashboard table as a `.csv` file directly from the PFL Dashboard modal. Includes journal name, path, PFL enabled status, index count, org count, academic society, date-start filter, and stats-cache status.
+- **Per-journal cache invalidation from the dashboard** — Each row in the Site Admin Dashboard now has a "Clear" button. Clicking it immediately clears the statistics cache for that journal via AJAX, updating the cache indicator in-place without closing the modal.
+- **Accessibility improvements** — The `<section>` wrapper around the Publication Facts Label on article pages now carries `role="region"`, `aria-label`, `aria-live="polite"`, and `aria-atomic="false"`, making the dynamically-loaded label widget accessible to screen readers.
+
+---
+
 ## Pending Features
 
 The following features are tracked in the issue queue and have not yet been implemented:
 
-| Feature | Issue |
-|---|---|
-| Open Peer Review Indicator — highlight reviewer count with links to published reviews when the Open Peer Review plugin is active | #46 |
-| ORCID Two-Way Verification — let editors and board members verify ORCID and push journal role to their ORCID profile | #45 |
-| DOAJ API Integration — expose PFL data via OJS REST API endpoint | #40 |
-| Per-Section PFL Statistics — scope statistics to specific journal sections | — |
-| PDF/HTML Article Embedding — inject PFL into JATS/HTML views and galley PDFs | #36 |
-| Preprint Support — show a modified label for preprint sections | — |
-| Accessibility Improvements — WCAG 2.1 AA compliance for the label widget | — |
-| Dashboard CSV Export — export per-journal PFL configuration data as CSV | #47 |
-| Per-journal cache invalidation from the dashboard | — |
+| Feature | Issue | Reason not yet implemented |
+|---|---|---|
+| Open Peer Review Indicator — highlight reviewer count with links to published reviews when the Open Peer Review plugin is active | #46 | No canonical OPR plugin API in OJS 3.5; data model uncertain |
+| ORCID Two-Way Verification — let editors and board members verify ORCID and push journal role to their ORCID profile | #45 | Requires ORCID OAuth credentials, member API access, complex OAuth2 flow; must be configured per-server |
+| DOAJ REST API Integration — expose PFL data via OJS REST API endpoint | #40 | Requires PKP `APIHandler` registration and OJS routing integration; non-trivial framework work |
+| Per-Section PFL Statistics — scope statistics to specific journal sections | — | Needs settings form changes and refactoring of all DB queries to accept a section filter |
+| PDF/HTML Article Embedding — inject PFL into JATS/HTML views and galley PDFs | #36 | PDF manipulation requires Snappy/wkhtmltopdf; HTML galley uses a separate hook chain |
+| Preprint Support — show a modified label for preprint sections | — | OJS 3.x has no native preprint section type; would need custom section flag and modified widget data |
+| Full WCAG 2.1 AA compliance for the label widget | — | The web component internals are in the `pfl` submodule (not this plugin's code); wrapper-level ARIA added in v2.1.0.0 |
 
 Pull requests are welcome. See [PKP Forum](https://forum.pkp.sfu.ca/) for discussion.
 
@@ -272,7 +279,8 @@ If your hosting environment has aggressive query time limits (e.g., 2–3 second
 
 | Version | Date | Notes |
 |---|---|---|
-| **2.0.0.0** | 2026-04-16 | PHP 8.3 / OJS 3.5 compatibility rewrite; new features: org memberships, custom indexes, cache management, admin dashboard |
+| **2.1.0.0** | 2026-04-16 | Dashboard CSV export, per-journal cache clear, ARIA accessibility |
+| **2.0.0.0** | 2026-04-16 | PHP 8.3 / OJS 3.5 compatibility rewrite; org memberships, custom indexes, cache management, admin dashboard |
 | 1.3.0.0 | 2025-11-07 | Prior stable release |
 | 1.0.x | 2023 | Initial release |
 

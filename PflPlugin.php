@@ -766,6 +766,31 @@ class PflPlugin extends GenericPlugin {
                     return new JSONMessage(false, 'Forbidden');
                 }
                 return new JSONMessage(true, $this->_fetchDashboard($request));
+
+            case 'exportCsvDashboard':
+                // CSV export of the dashboard table (Issue #47)
+                $user = $request->getUser();
+                if (!$user || !$user->hasRole([\PKP\security\Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE)) {
+                    return new JSONMessage(false, 'Forbidden');
+                }
+                $this->_outputCsvDashboard($request);
+                exit();
+
+            case 'clearJournalCache':
+                // Per-journal cache invalidation from the dashboard
+                $user = $request->getUser();
+                if (!$user || !$user->hasRole([\PKP\security\Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE)) {
+                    return new JSONMessage(false, 'Forbidden');
+                }
+                $journalId = (int) $request->getUserVar('journalId');
+                if ($journalId > 0) {
+                    try {
+                        Cache::forget('pflStats-' . $journalId);
+                    } catch (\Exception $e) {
+                        // Cache driver unavailable — not critical
+                    }
+                }
+                return new JSONMessage(true, ['cleared' => $journalId]);
         }
         return parent::manage($args, $request);
     }
@@ -777,6 +802,7 @@ class PflPlugin extends GenericPlugin {
     {
         $contextDao = Application::getContextDAO();
         $contexts = $contextDao->getAll(true);
+        $router = $request->getRouter();
 
         $journalRows = [];
         while ($context = $contexts->next()) {
@@ -818,11 +844,91 @@ class PflPlugin extends GenericPlugin {
             ];
         }
 
+        $clearJournalCacheUrl = $router->url($request, null, null, 'manage', null, [
+            'verb'     => 'clearJournalCache',
+            'plugin'   => $this->getName(),
+            'category' => 'generic',
+        ]);
+        $exportCsvUrl = $router->url($request, null, null, 'manage', null, [
+            'verb'     => 'exportCsvDashboard',
+            'plugin'   => $this->getName(),
+            'category' => 'generic',
+        ]);
+
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
-            'pluginName'  => $this->getName(),
-            'journalRows' => $journalRows,
+            'pluginName'           => $this->getName(),
+            'journalRows'          => $journalRows,
+            'clearJournalCacheUrl' => $clearJournalCacheUrl,
+            'exportCsvUrl'         => $exportCsvUrl,
         ]);
         return $templateMgr->fetch($this->getTemplateResource('dashboard.tpl'));
+    }
+
+    /**
+     * Output the dashboard data as a CSV file download (Issue #47).
+     * Outputs headers and body, then the caller should exit().
+     */
+    protected function _outputCsvDashboard($request): void
+    {
+        $contextDao = Application::getContextDAO();
+        $contexts = $contextDao->getAll(true);
+
+        $rows = [];
+        $rows[] = [
+            'Journal',
+            'Path',
+            'PFL Enabled',
+            'Indexes',
+            'Orgs',
+            'Society',
+            'Date Start',
+            'Stats Cached',
+        ];
+
+        while ($context = $contexts->next()) {
+            $journalId = $context->getId();
+
+            $indexCount = 0;
+            foreach (['includeDoaj', 'includeScholar', 'includeMedline', 'includeLatindex'] as $idx) {
+                if ($this->getSetting($journalId, $idx)) $indexCount++;
+            }
+            if ($this->getSetting($journalId, 'scopusUrl')) $indexCount++;
+            if ($this->getSetting($journalId, 'wosUrl')) $indexCount++;
+            if ($this->getSetting($journalId, 'customIndex1Url') && $this->getSetting($journalId, 'customIndex1Name')) $indexCount++;
+            if ($this->getSetting($journalId, 'customIndex2Url') && $this->getSetting($journalId, 'customIndex2Name')) $indexCount++;
+
+            $orgCount = 0;
+            if ($this->getSetting($journalId, 'copeUrl')) $orgCount++;
+            if ($this->getSetting($journalId, 'iildUrl')) $orgCount++;
+            if ($this->getSetting($journalId, 'customOrgUrl') && $this->getSetting($journalId, 'customOrgName')) $orgCount++;
+
+            $hasCached = false;
+            try {
+                $hasCached = Cache::get('pflStats-' . $journalId) !== null;
+            } catch (\Exception $e) {}
+
+            $rows[] = [
+                $context->getLocalizedName(),
+                $context->getData('urlPath') ?? '',
+                $this->getEnabled($journalId) ? 'Yes' : 'No',
+                $indexCount,
+                $orgCount,
+                $this->getSetting($journalId, 'academicSociety') ?: '',
+                $this->getSetting($journalId, 'dateStart') ?: '',
+                $hasCached ? 'Yes' : 'No',
+            ];
+        }
+
+        header('Content-Type: text/csv; charset=UTF-8');
+        header('Content-Disposition: attachment; filename="pfl-dashboard-' . date('Y-m-d') . '.csv"');
+        header('Cache-Control: no-store, no-cache, must-revalidate');
+        header('Pragma: no-cache');
+
+        $fp = fopen('php://output', 'w');
+        foreach ($rows as $row) {
+            fputcsv($fp, $row);
+        }
+        fclose($fp);
     }
 }
