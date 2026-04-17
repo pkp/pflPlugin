@@ -838,12 +838,14 @@ class PflPlugin extends GenericPlugin {
 
     /**
      * Sanitize a CSV cell value to prevent formula injection (CSV injection).
-     * Values that start with =, +, -, or @ are prefixed with a single quote
-     * so spreadsheet applications treat them as plain text.
+     * Values that start with optional leading whitespace/control characters
+     * followed by =, +, -, or @ are prefixed with a single quote so
+     * spreadsheet applications treat them as plain text.
      */
     protected function _sanitizeCsvCell(string $value): string
     {
-        if ($value !== '' && in_array($value[0], ['=', '+', '-', '@'], true)) {
+        $trimmedValue = ltrim($value, " \t\r\n\v\0");
+        if ($trimmedValue !== '' && in_array($trimmedValue[0], ['=', '+', '-', '@'], true)) {
             return "'" . $value;
         }
         return $value;
