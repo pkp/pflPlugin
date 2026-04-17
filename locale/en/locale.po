@@ -177,6 +177,9 @@ msgstr "The custom organization URL is not valid. Make sure the URL is complete 
 msgid "plugins.generic.pflPlugin.clearCache"
 msgstr "Clear Statistics Cache"
 
+msgid "plugins.generic.pflPlugin.clearCache.confirm"
+msgstr "Are you sure you want to clear the statistics cache for this journal? Fresh data will be fetched on the next article page view."
+
 msgid "plugins.generic.pflPlugin.clearCache.success"
 msgstr "The statistics cache for this journal has been cleared. Fresh data will be fetched on the next article page view."
 

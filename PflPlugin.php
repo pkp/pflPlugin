@@ -132,7 +132,7 @@ class PflPlugin extends GenericPlugin {
         // Both branches are static SQL strings — no user input involved.
         $datediffExpr = DB::connection() instanceof MySqlConnection
             ? DB::raw('DATEDIFF(p.date_published, s.date_submitted)')
-            : DB::raw('EXTRACT(DAY FROM p.date_published::date - s.date_submitted::date)');
+            : DB::raw('p.date_published::date - s.date_submitted::date');
 
         try {
             $row = DB::table(function ($query) use ($journalId, $dateStart, $datediffExpr) {
@@ -406,7 +406,7 @@ class PflPlugin extends GenericPlugin {
                     'pflDataAvailabilityValueUrl' => $pflDataAvailabilityValueUrl,
                     'pflDataAvailabilityPercentClass' => __('plugins.generic.pfl.percentage', ['num' => $statistics['pflDataAvailabilityPercentClass']]),
                     'pflFundersValue' => $pflFundersValue,
-                    'pflFundersCount' => $pflFundersValueUrl,
+                    'pflFundersValueUrl' => $pflFundersValueUrl,
                     'pflNumHaveFundersClass' => __('plugins.generic.pfl.percentage', ['num' => $statistics['pflNumHaveFundersClass']]),
                     'pflCompetingInterestsValue' => $pflCompetingInterestsValue,
                     'pflCompetingInterestsValueUrl' => $pflCompetingInterestsValueUrl,
@@ -744,7 +744,24 @@ class PflPlugin extends GenericPlugin {
                 return new JSONMessage(true, $form->fetch($request));
 
             case 'clearCache':
-                // Cache invalidation control (Feature 3)
+                // Cache invalidation control (Feature 3).
+                // On GET: show a CSRF-protected confirmation form.
+                // On POST: validate CSRF then clear the cache.
+                if (!$request->isPost()) {
+                    $router = $request->getRouter();
+                    $templateMgr = TemplateManager::getManager($request);
+                    $templateMgr->assign([
+                        'clearCacheUrl' => $router->url($request, null, null, 'manage', null, [
+                            'verb'     => 'clearCache',
+                            'plugin'   => $this->getName(),
+                            'category' => 'generic',
+                        ]),
+                    ]);
+                    return new JSONMessage(true, $templateMgr->fetch($this->getTemplateResource('clearCache.tpl')));
+                }
+                if (!$request->checkCSRF()) {
+                    return new JSONMessage(false, 'Invalid CSRF token');
+                }
                 $context = $request->getContext();
                 if ($context) {
                     Cache::forget('pflStats-' . $context->getId());
@@ -780,6 +797,9 @@ class PflPlugin extends GenericPlugin {
                 if (!$user || !$user->hasRole([\PKP\security\Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE)) {
                     return new JSONMessage(false, 'Forbidden');
                 }
+                if (!$request->isPost() || !$request->checkCSRF()) {
+                    return new JSONMessage(false, 'Invalid CSRF token');
+                }
                 $journalId = (int) $request->getUserVar('journalId');
                 if ($journalId > 0) {
                     try {
@@ -791,6 +811,42 @@ class PflPlugin extends GenericPlugin {
                 return new JSONMessage(true, ['status' => true, 'journalId' => $journalId]);
         }
         return parent::manage($args, $request);
+    }
+
+    /**
+     * Return the index count and org count for a given journal.
+     * Extracted to avoid duplication between _fetchDashboard() and _outputCsvDashboard().
+     */
+    protected function _getIndexAndOrgCounts(int $journalId): array
+    {
+        $indexCount = 0;
+        foreach (['includeDoaj', 'includeScholar', 'includeMedline', 'includeLatindex'] as $idx) {
+            if ($this->getSetting($journalId, $idx)) $indexCount++;
+        }
+        if ($this->getSetting($journalId, 'scopusUrl')) $indexCount++;
+        if ($this->getSetting($journalId, 'wosUrl')) $indexCount++;
+        if ($this->getSetting($journalId, 'customIndex1Url') && $this->getSetting($journalId, 'customIndex1Name')) $indexCount++;
+        if ($this->getSetting($journalId, 'customIndex2Url') && $this->getSetting($journalId, 'customIndex2Name')) $indexCount++;
+
+        $orgCount = 0;
+        if ($this->getSetting($journalId, 'copeUrl')) $orgCount++;
+        if ($this->getSetting($journalId, 'iildUrl')) $orgCount++;
+        if ($this->getSetting($journalId, 'customOrgUrl') && $this->getSetting($journalId, 'customOrgName')) $orgCount++;
+
+        return ['indexCount' => $indexCount, 'orgCount' => $orgCount];
+    }
+
+    /**
+     * Sanitize a CSV cell value to prevent formula injection (CSV injection).
+     * Values that start with =, +, -, or @ are prefixed with a single quote
+     * so spreadsheet applications treat them as plain text.
+     */
+    protected function _sanitizeCsvCell(string $value): string
+    {
+        if ($value !== '' && in_array($value[0], ['=', '+', '-', '@'], true)) {
+            return "'" . $value;
+        }
+        return $value;
     }
 
     /**
@@ -808,19 +864,7 @@ class PflPlugin extends GenericPlugin {
             $enabled = (bool) $this->getEnabled($journalId);
             $dateStart = $this->getSetting($journalId, 'dateStart');
 
-            $indexCount = 0;
-            foreach (['includeDoaj', 'includeScholar', 'includeMedline', 'includeLatindex'] as $idx) {
-                if ($this->getSetting($journalId, $idx)) $indexCount++;
-            }
-            if ($this->getSetting($journalId, 'scopusUrl')) $indexCount++;
-            if ($this->getSetting($journalId, 'wosUrl')) $indexCount++;
-            if ($this->getSetting($journalId, 'customIndex1Url') && $this->getSetting($journalId, 'customIndex1Name')) $indexCount++;
-            if ($this->getSetting($journalId, 'customIndex2Url') && $this->getSetting($journalId, 'customIndex2Name')) $indexCount++;
-
-            $orgCount = 0;
-            if ($this->getSetting($journalId, 'copeUrl')) $orgCount++;
-            if ($this->getSetting($journalId, 'iildUrl')) $orgCount++;
-            if ($this->getSetting($journalId, 'customOrgUrl') && $this->getSetting($journalId, 'customOrgName')) $orgCount++;
+            $counts = $this->_getIndexAndOrgCounts($journalId);
 
             $stats = null;
             try {
@@ -835,8 +879,8 @@ class PflPlugin extends GenericPlugin {
                 'path'        => $context->getData('urlPath'),
                 'enabled'     => $enabled,
                 'dateStart'   => $dateStart,
-                'indexCount'  => $indexCount,
-                'orgCount'    => $orgCount,
+                'indexCount'  => $counts['indexCount'],
+                'orgCount'    => $counts['orgCount'],
                 'hasCachedStats' => $stats !== null,
                 'academicSociety' => $this->getSetting($journalId, 'academicSociety') ?: '—',
             ];
@@ -887,35 +931,23 @@ class PflPlugin extends GenericPlugin {
         while ($context = $contexts->next()) {
             $journalId = $context->getId();
 
-            $indexCount = 0;
-            foreach (['includeDoaj', 'includeScholar', 'includeMedline', 'includeLatindex'] as $idx) {
-                if ($this->getSetting($journalId, $idx)) $indexCount++;
-            }
-            if ($this->getSetting($journalId, 'scopusUrl')) $indexCount++;
-            if ($this->getSetting($journalId, 'wosUrl')) $indexCount++;
-            if ($this->getSetting($journalId, 'customIndex1Url') && $this->getSetting($journalId, 'customIndex1Name')) $indexCount++;
-            if ($this->getSetting($journalId, 'customIndex2Url') && $this->getSetting($journalId, 'customIndex2Name')) $indexCount++;
-
-            $orgCount = 0;
-            if ($this->getSetting($journalId, 'copeUrl')) $orgCount++;
-            if ($this->getSetting($journalId, 'iildUrl')) $orgCount++;
-            if ($this->getSetting($journalId, 'customOrgUrl') && $this->getSetting($journalId, 'customOrgName')) $orgCount++;
+            $counts = $this->_getIndexAndOrgCounts($journalId);
 
             $hasCached = false;
             try {
                 $hasCached = Cache::get('pflStats-' . $journalId) !== null;
             } catch (\Exception $e) {}
 
-            $rows[] = [
+            $rows[] = array_map([$this, '_sanitizeCsvCell'], [
                 $context->getLocalizedName(),
                 $context->getData('urlPath') ?? '',
                 $this->getEnabled($journalId) ? 'Yes' : 'No',
-                $indexCount,
-                $orgCount,
+                (string) $counts['indexCount'],
+                (string) $counts['orgCount'],
                 $this->getSetting($journalId, 'academicSociety') ?: '',
                 $this->getSetting($journalId, 'dateStart') ?: '',
                 $hasCached ? 'Yes' : 'No',
-            ];
+            ]);
         }
 
         header('Content-Type: text/csv; charset=UTF-8');

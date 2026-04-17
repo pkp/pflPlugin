@@ -12,11 +12,14 @@
     <h2 style="margin-bottom:0.5em;">{translate key="plugins.generic.pflPlugin.dashboard"}</h2>
 
     <p style="margin:0 0 1em 0;">
-        <a href="{$exportCsvUrl|escape}" target="_blank" class="pkp_button"
+        <a href="{$exportCsvUrl|escape}" target="_blank" rel="noopener noreferrer" class="pkp_button"
            style="display:inline-block; padding:5px 12px; background:#007ab3; color:#fff; text-decoration:none; border-radius:3px; font-size:0.9em;">
             {translate key="plugins.generic.pflPlugin.dashboard.exportCsv"}
         </a>
     </p>
+
+    {* Hidden CSRF token used by the pflClearJournalCache AJAX POST below *}
+    {csrf}
 
     <table class="pkp_table" style="width:100%; border-collapse:collapse; margin-top:0.5em;">
         <thead>
@@ -104,7 +107,8 @@
         var originalText = btn.textContent;
         btn.disabled = true;
         btn.textContent = '…';
-        jQuery.getJSON(clearUrl, {ldelim}journalId: journalId{rdelim}, function(data) {
+        var csrfToken = (document.querySelector('input[name="csrfToken"]') || {}).value || '';
+        jQuery.post(clearUrl, {ldelim}journalId: journalId, csrfToken: csrfToken{rdelim}, function(data) {
             var cell = document.getElementById('pfl-cache-cell-' + journalId);
             if (data && data.status) {
                 cell.innerHTML = '<span style="color:#aaa;">&#8212;</span>'
@@ -116,7 +120,7 @@
                 btn.disabled = false;
                 btn.textContent = originalText;
             }
-        }).fail(function() {
+        }, 'json').fail(function() {
             btn.disabled = false;
             btn.textContent = originalText;
         });
