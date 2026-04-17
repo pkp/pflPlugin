@@ -3,7 +3,7 @@
 [![OJS 3.5+](https://img.shields.io/badge/OJS-3.5%2B-blue)](https://pkp.sfu.ca/software/ojs/)
 [![PHP 8.3+](https://img.shields.io/badge/PHP-8.3%2B-blue)](https://www.php.net/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Version](https://img.shields.io/badge/version-2.1.0.0-green)](#version-history)
+[![Version](https://img.shields.io/badge/version-2.1.1.0-green)](#version-history)
 
 This plugin integrates the [Publication Facts Label](https://github.com/pkp/pfl) into Open Journal Systems (OJS). The PFL is a standardized, reader-facing summary of a journal's integrity characteristics — acceptance rates, peer reviewer counts, competing-interest disclosure rates, funding disclosure, indexing, and more — displayed on every article landing page.
 
@@ -24,6 +24,8 @@ This plugin integrates the [Publication Facts Label](https://github.com/pkp/pfl)
 - [Site Admin Dashboard](#site-admin-dashboard)
 - [Cache Management](#cache-management)
 - [What is Displayed](#what-is-displayed)
+- [Changes in v2.1.1.0](#changes-in-v2110)
+- [Changes in v2.1.0.0](#changes-in-v2100)
 - [Changes in v2.0.0.0](#changes-in-v2000)
 - [Pending Features](#pending-features)
 - [Dependencies](#dependencies)
@@ -52,6 +54,18 @@ This plugin integrates the [Publication Facts Label](https://github.com/pkp/pfl)
 - **Site Admin Dashboard** — Accessible to site administrators; shows all journals and their PFL configuration status (enabled, indexes configured, org memberships, cached stats, date-start filter, academic society)
 - **English Locale Fallback** — If a locale translation JSON file is missing, the label gracefully falls back to English (Issue #41)
 - **Submission Date Null Safety** — Articles with a null `dateSubmitted` are no longer incorrectly excluded by the date-start filter
+
+### Added in v2.1.0.0
+- **Dashboard CSV Export** — Site admins can download the dashboard table as a `.csv` file
+- **Per-journal cache clear from the dashboard** — Each row in the Site Admin Dashboard has a "Clear" button for instant AJAX cache invalidation
+- **Accessibility improvements** — The label wrapper now carries `role="region"`, `aria-label`, `aria-live`, and `aria-atomic` attributes
+
+### Fixed in v2.1.1.0
+- **CSV formula injection** — User-controlled fields exported to CSV are sanitized to prevent spreadsheet formula execution
+- **Reverse-tabnabbing** — CSV export link now includes `rel="noopener noreferrer"`
+- **CSRF protection for cache-clear actions** — `clearCache` now shows a POST confirmation form; `clearJournalCache` uses POST with CSRF validation
+- **PostgreSQL date-diff correctness** — `EXTRACT(DAY FROM ...)` wrapper removed; date subtraction already returns an integer
+- **`pflFundersValueUrl` key mismatch** — Renamed from the incorrect `pflFundersCount` to properly expose the funding anchor URL
 
 ---
 
@@ -143,10 +157,16 @@ Site administrators see a **PFL Dashboard** action in the plugin list. This open
 
 Statistics are cached per-journal for **24 hours** using OJS's built-in cache layer (file, database, or Redis depending on your OJS configuration).
 
-**To clear the cache manually:**
+**To clear the cache manually (Journal Manager):**
 1. Go to **Settings → Website → Plugins → Generic Plugins → Publication Facts Label**.
 2. Click **Clear Statistics Cache**.
-3. The cache for the current journal is cleared immediately. Fresh statistics will be fetched on the next article page view.
+3. Confirm the action in the prompt that appears.
+4. The cache for the current journal is cleared immediately. Fresh statistics will be fetched on the next article page view.
+
+**To clear the cache for any journal (Site Admin):**
+1. Open the **PFL Dashboard** from the plugin action list.
+2. Click the **Clear** button in the "Stats Cached" column for the target journal.
+3. The cache indicator updates in-place without closing the modal.
 
 > This is useful after bulk-importing submissions or correcting data, when you want the label to reflect the latest numbers without waiting 24 hours.
 
@@ -200,6 +220,26 @@ Each article landing page shows a Publication Facts Label with the following row
 - Cache Invalidation Control
 - Site Admin Dashboard (Issue #47)
 - English locale fallback (Issue #41)
+
+---
+
+## Changes in v2.1.1.0
+
+### Security Fixes
+- **CSV formula injection** — `_sanitizeCsvCell()` helper prefixes any cell value starting with `=`, `+`, `-`, or `@` with a single quote before passing it to `fputcsv`. This prevents spreadsheet applications (Excel, Google Sheets) from executing embedded formulas when the CSV is opened.
+- **Reverse-tabnabbing** — Added `rel="noopener noreferrer"` to the `target="_blank"` CSV export link in the Site Admin Dashboard.
+- **CSRF protection — `clearCache`** — The journal-level cache-clear action previously executed on a plain GET request (via `AjaxModal`). It now renders a POST confirmation form that includes OJS's standard `{csrf}` token. The cache is only cleared after the form is submitted with a valid token.
+- **CSRF protection — `clearJournalCache`** — The per-journal cache-clear AJAX call in the dashboard previously used `$.getJSON` (GET). It now uses `$.post()`, reads the CSRF token from the hidden input rendered by `{csrf}` in the modal, and the server validates the token before acting.
+
+### Bug Fixes
+- **`pflFundersValueUrl` key mismatch** — The funding anchor URL was accidentally stored under the key `pflFundersCount` (a copy/paste error). It is now correctly exposed as `pflFundersValueUrl`, consistent with the `*Value` / `*ValueUrl` naming pattern used for all other PFL data fields.
+- **PostgreSQL date-diff expression** — The previous expression `EXTRACT(DAY FROM p.date_published::date - s.date_submitted::date)` is invalid: subtracting two `::date` values yields an integer (days) directly, making the `EXTRACT` wrapper a type error. The wrapper has been removed, keeping the expression portable and correct on PostgreSQL 10+.
+
+### Refactor
+- **Shared index/org count helper** — The logic for counting configured indexes and organization memberships was duplicated verbatim in both `_fetchDashboard()` and `_outputCsvDashboard()`. It is now consolidated in a single `_getIndexAndOrgCounts(int $journalId): array` helper, eliminating drift risk when new index or org types are added.
+
+### Docs
+- Fixed typo in the Pending Features table: "Curenttechnical" → "Current technical".
 
 ---
 
@@ -271,6 +311,10 @@ If your hosting environment has aggressive query time limits (e.g., 2–3 second
 ## Security
 
 - All form submissions are validated with `FormValidatorPost` (POST-only) and `FormValidatorCSRF` (CSRF token).
+- The `clearCache` action (journal-level) uses a CSRF-protected POST confirmation form — it cannot be triggered by a third-party page via GET.
+- The `clearJournalCache` action (dashboard) uses POST + CSRF token validation, preventing CSRF-triggered cache floods.
+- CSV export sanitizes all user-controlled fields with a formula-injection guard (prefix `'` on cells starting with `=`, `+`, `-`, `@`) before writing with `fputcsv`.
+- The `target="_blank"` CSV download link carries `rel="noopener noreferrer"` to prevent reverse-tabnabbing.
 - All external HTTP calls (DOAJ, Latindex, MEDLINE validation; PKP statistics API) are wrapped in `try/catch`. A network failure never surfaces to the end user.
 - The Site Admin Dashboard is guarded by `ROLE_ID_SITE_ADMIN` role check in addition to OJS's plugin management access control.
 - Database joins use proper column-reference syntax (`$join->on()`) — no raw column names passed to `where()`.
@@ -282,6 +326,7 @@ If your hosting environment has aggressive query time limits (e.g., 2–3 second
 
 | Version | Date | Notes |
 |---|---|---|
+| **2.1.1.0** | 2026-04-17 | Security fixes (CSV injection, CSRF, tabnabbing), PostgreSQL date-diff fix, funder URL key fix, shared helper refactor |
 | **2.1.0.0** | 2026-04-16 | Dashboard CSV export, per-journal cache clear, ARIA accessibility |
 | **2.0.0.0** | 2026-04-16 | PHP 8.3 / OJS 3.5 compatibility rewrite; org memberships, custom indexes, cache management, admin dashboard |
 | 1.3.0.0 | 2025-11-07 | Prior stable release |
@@ -289,14 +334,5 @@ If your hosting environment has aggressive query time limits (e.g., 2–3 second
 
 ---
 
-- All DB queries use the query builder with bound parameters (no raw-SQL injection risk)
-- Every query is wrapped in try/catch — a timeout or missing table returns 0/null instead of crashing the article page
-- The 24-hour statistics cache means heavy queries run at most once per day per journal
-- All settings validated (CSRF, POST-only, URL format, ISSN checks)
-- Role-checked admin endpoints
-- authorCiFilter compatible with OJS 3.4 (array) and 3.5 (Collection)
-- English locale fallback prevents blank labels
-
----
 *For support, please use the [PKP Community Forum](https://forum.pkp.sfu.ca/).*
 *Plugin developed with contributions from Simon Fraser University, John Willinsky, and the PKP community.*
