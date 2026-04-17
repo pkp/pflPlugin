@@ -7,10 +7,17 @@
  *
  * Confirmation form for clearing the PFL statistics cache.
  *}
+<script>
+$(function() {ldelim}
+    $('#pflClearCacheForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+{rdelim});
+</script>
+
 <div class="pkp_modal_panel">
     <h2>{translate key="plugins.generic.pflPlugin.clearCache"}</h2>
-    <form method="post" action="{$clearCacheUrl|escape}">
+    <form class="pkp_form" id="pflClearCacheForm" method="post" action="{$clearCacheUrl|escape}">
         {csrf}
+        {include file="controllers/notification/inPlaceNotification.tpl" notificationId="pflClearCacheFormNotification"}
         <p>{translate key="plugins.generic.pflPlugin.clearCache.confirm"}</p>
         <button type="submit" class="pkp_button pkp_button_primary">
             {translate key="plugins.generic.pflPlugin.clearCache"}
