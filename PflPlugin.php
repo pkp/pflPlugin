@@ -177,7 +177,6 @@ class PflPlugin extends GenericPlugin {
      */
     function getFundedSubmissionCount(int $journalId, ?string $dateStart = null): ?int
     {
-        if (!PluginRegistry::getPlugin('generic', 'FundingPlugin')) return null;
         $row = DB::table('submissions AS s')
             ->select([DB::raw('COUNT(*) AS submission_count')])
             ->join('publications AS p', 's.current_publication_id', '=', 'p.publication_id')
@@ -261,13 +260,13 @@ class PflPlugin extends GenericPlugin {
         $submissionDate = new \DateTime($article->getData('dateSubmitted'));
 
         // Funding
-        $pflFundingEnabled = (bool) PluginRegistry::getPlugin('generic', 'FundingPlugin');
+        $pflFundingEnabled = $journal->getData('funders');
         $pflFundersCount = 0;
         $pflFundersValue = $pflFundersValueUrl = null;
-        if ($pflFundingEnabled) {
-            $funderDao = DAORegistry::getDAO('FunderDAO');
-            $funders = $funderDao->getBySubmissionId($article->getId());
-            $firstFunder = $funders->next();
+        
+        if ($pflFundingEnabled) {            
+            $funders = $publication->getData('funders');
+            $firstFunder = $funders[0] ?? null;
 
             $pflFundersValue = $firstFunder ? 'YES' : 'NO';
             if ($firstFunder) $pflFundersValueUrl = '#funding-data';
