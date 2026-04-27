@@ -267,7 +267,7 @@ class PflPlugin extends GenericPlugin {
         if ($dateStart && $dateSubmitted && strtotime($dateStart) > strtotime($dateSubmitted)) return false;
 
         $pflIndexList = [];
-        $onlineIssn = urlencode($journal->getSetting('onlineIssn'));
+        $onlineIssn = urlencode($journal->getSetting('onlineIssn') ?? '');
 
         if ($this->getSetting($journal->getId(), 'includeDoaj')) {
             $pflIndexList["https://doaj.org/toc/{$onlineIssn}"] = ['name' => 'DOAJ', 'description' => 'Directory of Open Access Journals'];
