@@ -265,8 +265,7 @@ class PflPlugin extends GenericPlugin {
         $pflFundersValue = $pflFundersValueUrl = null;
         
         if ($pflFundingEnabled) {            
-            $funders = $publication->getData('funders');
-            $firstFunder = $funders[0] ?? null;
+            $firstFunder = $article->getData('funders')->first();
 
             $pflFundersValue = $firstFunder ? 'YES' : 'NO';
             if ($firstFunder) $pflFundersValueUrl = '#funding-data';
