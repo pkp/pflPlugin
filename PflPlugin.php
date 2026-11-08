@@ -93,8 +93,10 @@ class PflPlugin extends GenericPlugin {
 
     /**
      * Get the average peer reviews per published submission in a reviewed section for the journal.
+     *
+     * @return ?float The average, or null if no published submission in a reviewed section has review assignments.
      */
-    function getReviewerAverage(int $journalId, ?string $dateStart = null): float
+    function getReviewerAverage(int $journalId, ?string $dateStart = null): ?float
         {
         $rows = DB::select(DB::raw(
             'SELECT AVG(a.ra_count) AS reviewer_count FROM (
@@ -107,7 +109,8 @@ class PflPlugin extends GenericPlugin {
                 GROUP BY s.submission_id
             ) a'
         )->getValue(DB::connection()->getQueryGrammar()));
-        return $rows[0]->reviewer_count;
+        $reviewerAverage = $rows[0]->reviewer_count;
+        return $reviewerAverage === null ? null : (float) $reviewerAverage;
     }
 
     /**
@@ -248,6 +251,7 @@ class PflPlugin extends GenericPlugin {
 
         // Class data
         $statistics = $this->getStatistics($journal->getId());
+        $reviewerAverage = $this->getReviewerAverage($journal->getId(), $dateStart);
 
         // Article-specific PFL data
         $competingInterests = [];
@@ -309,7 +313,7 @@ class PflPlugin extends GenericPlugin {
                 'locale' =>  Locale::getLocale(),
                 'values' => [
                     'pflReviewerCount' => $this->getReviewerCount($article->getId()),
-                    'pflReviewerCountClass' => round($this->getReviewerAverage($journal->getId(), $dateStart), 1),
+                    'pflReviewerCountClass' => $reviewerAverage === null ? null : round($reviewerAverage, 1),
                     'pflDataAvailabilityValue' => $pflDataAvailabilityValue,
                     'pflDataAvailabilityValueUrl' => $pflDataAvailabilityValueUrl,
                     'pflDataAvailabilityPercentClass' => __('plugins.generic.pfl.percentage', ['num' => $statistics['pflDataAvailabilityPercentClass']]),
