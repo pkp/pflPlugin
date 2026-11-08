@@ -94,7 +94,7 @@ class PflPlugin extends GenericPlugin {
     /**
      * Get the average peer reviews per published submission in a reviewed section for the journal.
      */
-    function getReviewerAverage(int $journalId, ?string $dateStart = null): float
+    function getReviewerAverage(int $journalId, ?string $dateStart = null): ?float
         {
         $rows = DB::select(DB::raw(
             'SELECT AVG(a.ra_count) AS reviewer_count FROM (
